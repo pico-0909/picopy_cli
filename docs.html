@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Picopy — مستندات رسمی</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f6f8fa;
+    --text: #1f2328;
+    --text-muted: #656d76;
+    --border: #d0d7de;
+    --accent: #0969da;
+    --accent-hover: #0860ca;
+    --accent-soft: rgba(9, 105, 218, 0.08);
+    --code-bg: #f6f8fa;
+    --sidebar-bg: #f6f8fa;
+    --success: #1a7f37;
+    --warning: #9a6700;
+    --danger: #cf222e;
+    --purple: #8250df;
+  }
+
+  [data-theme="dark"] {
+    --bg: #0d1117;
+    --bg-alt: #161b22;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --border: #30363d;
+    --accent: #58a6ff;
+    --accent-hover: #79c0ff;
+    --accent-soft: rgba(88, 166, 255, 0.1);
+    --code-bg: #161b22;
+    --sidebar-bg: #010409;
+    --success: #3fb950;
+    --warning: #d29922;
+    --danger: #f85149;
+    --purple: #a371f7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.9;
+    font-size: 16px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  /* ─── Top Bar ─── */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo svg { width: 22px; height: 22px; color: var(--accent); }
+
+  .logo-badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .search-box {
+    position: relative;
+  }
+
+  .search-box input {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 12px 6px 34px;
+    color: var(--text);
+    font-size: 13px;
+    width: 240px;
+    outline: none;
+    font-family: inherit;
+  }
+
+  .search-box input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .search-box .search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  .theme-toggle {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .theme-toggle svg { width: 17px; height: 17px; }
+
+  /* ─── Layout ─── */
+  .layout {
+    display: flex;
+    min-height: calc(100vh - 60px);
+  }
+
+  /* ─── Sidebar ─── */
+  .sidebar {
+    width: 280px;
+    background: var(--sidebar-bg);
+    border-left: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+
+  .sidebar::-webkit-scrollbar { width: 6px; }
+  .sidebar::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+
+  .sidebar-section {
+    margin-bottom: 22px;
+  }
+
+  .sidebar-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-muted);
+    padding: 0 20px 8px;
+  }
+
+  .sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 20px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13.5px;
+    border-right: 3px solid transparent;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+
+  .sidebar a svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+
+  .sidebar a:hover {
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  .sidebar a.active {
+    color: var(--accent);
+    border-right-color: var(--accent);
+    background: var(--bg);
+    font-weight: 600;
+  }
+
+  .sidebar a.active svg { opacity: 1; }
+
+  /* ─── Main Content ─── */
+  .main {
+    flex: 1;
+    padding: 40px 60px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+    min-width: 0;
+  }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .page-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .page-meta svg { width: 15px; height: 15px; }
+
+  h1 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .lead {
+    font-size: 17px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h3 {
+    font-size: 19px;
+    font-weight: 600;
+    margin: 28px 0 12px;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 22px 0 10px;
+  }
+
+  p {
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  a:hover { text-decoration: underline; }
+
+  strong { font-weight: 600; }
+
+  ul, ol {
+    margin: 12px 0 18px;
+    padding-right: 26px;
+  }
+
+  li { margin: 6px 0; }
+
+  /* ─── Code ─── */
+  code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 13px;
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--danger);
+    direction: ltr;
+    display: inline-block;
+  }
+
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    overflow-x: auto;
+    margin: 18px 0;
+    direction: ltr;
+    text-align: left;
+    position: relative;
+  }
+
+  pre::before {
+    content: 'PYTHON';
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    font-weight: 600;
+    opacity: 0.5;
+  }
+
+  pre code {
+    background: none;
+    padding: 0;
+    color: var(--text);
+    font-size: 13.5px;
+    line-height: 1.7;
+    display: block;
+  }
+
+  .kw { color: #cf222e; }
+  .str { color: #0a3069; }
+  .fn { color: #8250df; }
+  .cm { color: #6e7781; font-style: italic; }
+  .num { color: #0550ae; }
+  .dec { color: #8250df; }
+  .op { color: #cf222e; }
+
+  [data-theme="dark"] .kw { color: #ff7b72; }
+  [data-theme="dark"] .str { color: #a5d6ff; }
+  [data-theme="dark"] .fn { color: #d2a8ff; }
+  [data-theme="dark"] .cm { color: #8b949e; }
+  [data-theme="dark"] .num { color: #79c0ff; }
+  [data-theme="dark"] .dec { color: #d2a8ff; }
+  [data-theme="dark"] .op { color: #ff7b72; }
+
+  /* ─── Table ─── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  th {
+    background: var(--bg-alt);
+    color: var(--text);
+    padding: 10px 14px;
+    text-align: right;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg-alt); }
+
+  /* ─── Callouts ─── */
+  .callout {
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-right: 4px solid;
+    font-size: 14.5px;
+    line-height: 1.8;
+    display: flex;
+    gap: 12px;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+  }
+
+  .callout-note {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+  }
+  .callout-note .callout-icon { color: var(--accent); }
+
+  .callout-warning {
+    background: rgba(154, 103, 0, 0.08);
+    border-color: var(--warning);
+  }
+  .callout-warning .callout-icon { color: var(--warning); }
+
+  .callout-danger {
+    background: rgba(207, 34, 46, 0.08);
+    border-color: var(--danger);
+  }
+  .callout-danger .callout-icon { color: var(--danger); }
+
+  .callout-success {
+    background: rgba(26, 127, 55, 0.08);
+    border-color: var(--success);
+  }
+  .callout-success .callout-icon { color: var(--success); }
+
+  .callout-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  /* ─── Grid ─── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 22px 0;
+  }
+
+  .card {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.2s;
+  }
+
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .card h4 {
+    margin: 0 0 8px;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .card p {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* ─── Page Nav ─── */
+  .page-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .page-nav a {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 18px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    min-width: 180px;
+    transition: all 0.2s;
+  }
+
+  .page-nav a:hover {
+    border-color: var(--accent);
+    background: var(--bg-alt);
+    text-decoration: none;
+  }
+
+  .page-nav .nav-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .page-nav .nav-title {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .page-nav .nav-next { text-align: left; }
+
+  /* ─── Hero ─── */
+  .hero {
+    text-align: center;
+    padding: 60px 24px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, var(--accent-soft), rgba(130, 80, 223, 0.1));
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .hero-icon {
+    width: 64px;
+    height: 64px;
+    color: var(--accent);
+    margin: 0 auto 20px;
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 24px;
+    line-height: 1.8;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+
+  .btn svg { width: 16px; height: 16px; }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    text-decoration: none;
+  }
+
+  .btn-secondary {
+    background: var(--bg-alt);
+    color: var(--text);
+    border-color: var(--border);
+  }
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .badges {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+
+  .badge {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .badge svg { width: 12px; height: 12px; }
+
+  /* ─── Mobile ─── */
+  .menu-toggle {
+    display: none;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-toggle svg { width: 18px; height: 18px; }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 40;
+  }
+  .overlay.show { display: block; }
+
+  @media (max-width: 900px) {
+    .sidebar {
+      position: fixed;
+      right: -300px;
+      top: 60px;
+      z-index: 50;
+      transition: right 0.3s;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+      background: var(--bg);
+    }
+    .sidebar.open { right: 0; }
+    .main { padding: 24px 20px 60px; }
+    .menu-toggle { display: flex; }
+    .search-box input { width: 130px; }
+    h1 { font-size: 28px; }
+    .hero h1 { font-size: 34px; }
+    .hero p { font-size: 16px; }
+    .page-nav a { min-width: 0; flex: 1; }
+  }
+
+  /* ─── Utilities ─── */
+  .icon-inline {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: -3px;
+    color: currentColor;
+    margin-left: 4px;
+  }
+
+  .anchor-offset { scroll-margin-top: 80px; }
+
+  .search-hidden { display: none !important; }
+
+  /* ─── Step List ─── */
+  .steps {
+    list-style: none;
+    padding: 0;
+    counter-reset: step;
+  }
+
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding-right: 44px;
+    margin: 16px 0;
+    min-height: 32px;
+  }
+
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ TOP BAR ═══════════════ -->
+<div class="topbar">
+  <div class="topbar-left">
+    <button class="menu-toggle" onclick="toggleSidebar()" aria-label="منو">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="#intro" class="logo" onclick="navigateTo('intro'); return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="16 18 22 12 16 6"/>
+        <polyline points="8 6 2 12 8 18"/>
+      </svg>
+      Picopy
+      <span class="logo-badge">v1.0.0</span>
+    </a>
+  </div>
+  <div class="topbar-right">
+    <div class="search-box">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="searchInput" placeholder="جستجو..." onkeyup="searchDocs()">
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" title="تغییر تم">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════ LAYOUT ═══════════════ -->
+<div class="layout">
+
+  <!-- ─── Sidebar ─── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">شروع</div>
+      <a href="#intro" data-page="intro">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        معرفی
+      </a>
+      <a href="#install" data-page="install">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        نصب
+      </a>
+      <a href="#quickstart" data-page="quickstart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        شروع سریع
+      </a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">مفاهیم</div>
+      <a href="#concepts" data-page="concepts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        مفاهیم اصلی
+      </a>
+      <a href="#menus" data-page="menus">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        منوها
+      </a>
+      <a href="#forms" data-page="forms">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        فرم‌ها
+      </a>
+      <a href="#fields" data-page="fields">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"/><path d="M12 4v16"/></svg>
+        فیلدها
+      </a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">ظاهر</div>
+      <a href="#colors" data-page="colors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+        رنگ‌ها
+      </a>
+      <a href="#themes" data-page="themes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        تم‌ها
+      </a>
+      <a href="#messages" data-page="messages">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        پیام‌ها
+      </a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">ابزارها</div>
+      <a href="#spinner" data-page="spinner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Spinner
+      </a>
+      <a href="#progress" data-page="progress">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        Progress
+      </a>
+      <a href="#quickask" data-page="quickask">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        سوال سریع
+      </a>
+      <a href="#navigation" data-page="navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        ناوبری
+      </a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">راهنما</div>
+      <a href="#examples" data-page="examples">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        مثال‌ها
+      </a>
+      <a href="#errors" data-page="errors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        خطاهای رایج
+      </a>
+      <a href="#faq" data-page="faq">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        سوالات متداول
+      </a>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- ─── Main ─── -->
+  <main class="main">
+
+    <!-- ═══════ PAGE: INTRO ═══════ -->
+    <div class="page active" id="page-intro">
+      <div class="hero">
+        <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
+        <h1>Picopy</h1>
+        <p>
+          یک فریم‌ورک سبک، قابل حمل و صفر-وابستگی برای ساخت رابط خط فرمان
+          (CLI) با پایتون. با چند خط کد، برنامه‌ای حرفه‌ای، زیبا و تعاملی
+          بسازید.
+        </p>
+        <div class="buttons">
+          <a href="#quickstart" class="btn btn-primary" onclick="navigateTo('quickstart'); return false;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            شروع کنید
+          </a>
+          <a href="#examples" class="btn btn-secondary" onclick="navigateTo('examples'); return false;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            مشاهده مثال‌ها
+          </a>
+        </div>
+        <div class="badges">
+          <span class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Python 3.9+
+          </span>
+          <span class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            Zero-Dependency
+          </span>
+          <span class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+            6 Themes
+          </span>
+        </div>
+      </div>
+
+      <h2>چرا Picopy؟</h2>
+      <p>
+        ساخت یک رابط خط فرمان زیبا و تعاملی معمولاً نیازمند کتابخانه‌های
+        متعدد و پیکربندی پیچیده است. هر کتابخانه وابستگی‌های خاص خودش را
+        دارد، نسخه‌ی پایتون را محدود می‌کند و کاربر نهایی باید قبل از
+        اجرا، چندین دستور <code>pip install</code> بزند. این چرخه‌ی
+        خسته‌کننده باعث می‌شود که بسیاری از پروژه‌ها به جای تمرکز روی
+        منطق برنامه، وقت خود را صرف پیکربندی محیط کنند.
+      </p>
+      <p>
+        Picopy این مشکل را از ریشه حل می‌کند. تمام کتابخانه‌های ثالث
+        داخل پوشه‌ی پروژه قرار می‌گیرند تا کاربر نهایی نیازی به نصب
+        چیزی نداشته باشد. یعنی کافیست پوشه‌ی پروژه را کپی کنید و
+        برنامه‌تان همه‌جا کار کند، حتی در سیستم‌هایی که اینترنت ندارند
+        یا دسترسی ادمین محدود است.
+      </p>
+
+      <h2>ویژگی‌های کلیدی</h2>
+      <div class="grid">
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <h4>سبک و سریع</h4>
+          <p>بدون وابستگی سنگین. راه‌اندازی فوری، اجرای بدون تأخیر، حافظه‌ی کم.</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M9 4v16"/></svg>
+          <h4>قابل حمل</h4>
+          <p>همه‌چیز داخل یک پوشه. کپی کن و هر جا اجرا کن، روی هر سیستم‌عاملی.</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h4>صفر-وابستگی</h4>
+          <p>کاربر نهایی نیازی به pip، اینترنت یا نصب چیزی ندارد.</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+          <h4>۶ تم آماده</h4>
+          <p>dark, light, dracula, nord, gruvbox, mono. یا تم سفارشی خودت را بساز.</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <h4>ویجت‌های متنوع</h4>
+          <p>text, password, confirm, select, multiselect, number, path, info</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/><polyline points="3 18 9 12 3 6"/></svg>
+          <h4>ناوبری هوشمند</h4>
+          <p>تاریخچه‌ی ناوبری، بازگشت خودکار، مدیریت ESC و Ctrl+C</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+          <h4>Spinner و Progress</h4>
+          <p>نمایش چرخنده و نوار پیشرفت برای عملیات طولانی</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <h4>پیام‌های آماده</h4>
+          <p>موفقیت، خطا، هشدار، اطلاع — همه با رنگ و آیکون</p>
+        </div>
+      </div>
+
+      <h2>برای چه کسانی مناسب است؟</h2>
+      <p>
+        اگر توسعه‌دهنده‌ای هستید که می‌خواهد سریع یک ابزار خط فرمان
+        بسازد، Picopy برای شماست. اگر می‌خواهید برنامه‌ای بسازید که
+        بدون نیاز به نصب وابستگی روی سیستم کاربر اجرا شود، Picopy
+        بهترین انتخاب است. اگر به ظاهر و زیبایی ترمینال اهمیت می‌دهید،
+        تم‌ها و رنگ‌های متنوع Picopy را راضی خواهند کرد.
+      </p>
+
+      <div class="page-nav">
+        <span></span>
+        <a href="#install" class="nav-next" onclick="navigateTo('install'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">نصب ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: INSTALL ═══════ -->
+    <div class="page" id="page-install">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        شروع / نصب
+      </div>
+      <h1>نصب</h1>
+      <p class="lead">
+        برای استفاده از Picopy، کافیست فایل WHL را دریافت کنید و
+        با یک دستور نصبش کنید. تمام وابستگی‌ها به‌صورت خودکار
+        نصب می‌شوند.
+      </p>
+
+      <h2>دریافت فایل WHL</h2>
+      <p>
+        فایل <code>picopy-1.0.0-py3-none-any.whl</code> را از هر
+        جایی که در اختیارتان قرار گرفته دریافت کنید. این فایل
+        شامل کل کتابخانه و اطلاعات نصب است. می‌توانید آن را از
+        طریق ایمیل، پیام‌رسان، حافظه‌ی جانبی یا هر روش دیگری
+        به دست آورید.
+      </p>
+
+      <h2>نصب با یک دستور</h2>
+      <p>
+        فایل را در یک پوشه قرار دهید، ترمینال را در همان پوشه باز
+        کنید و دستور زیر را اجرا کنید:
+      </p>
+      <pre><code>pip install picopy-1.0.0-py3-none-any.whl</code></pre>
+      <p>
+        pip به‌صورت خودکار وابستگی‌های Picopy (مثل questionary)
+        را از PyPI دانلود و نصب می‌کند. اگر اینترنت ندارید،
+        می‌توانید وابستگی‌ها را جداگانه نصب کنید.
+      </p>
+
+      <h2>تأیید نصب</h2>
+      <p>
+        برای اطمینان از نصب موفق، این دستور را در ترمینال بزنید:
+      </p>
+      <pre><code>python -c "from picopy import App; print('OK')"</code></pre>
+      <p>
+        اگر <code>OK</code> دیدید، نصب موفق بوده است.
+      </p>
+
+      <h2>استفاده در کد</h2>
+      <p>
+        بعد از نصب، در هر فایل پایتون می‌توانید بنویسید:
+      </p>
+      <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> App</code></pre>
+
+      <h2>حذف نصب</h2>
+      <p>
+        اگر می‌خواهید Picopy را حذف کنید:
+      </p>
+      <pre><code>pip uninstall picopy</code></pre>
+
+      <h2>ارتقا</h2>
+      <p>
+        برای نصب نسخه‌ی جدید، کافیست فایل WHL جدید را دریافت
+        کنید و همان دستور نصب را با اسم فایل جدید اجرا کنید:
+      </p>
+      <pre><code>pip install picopy-1.0.1-py3-none-any.whl</code></pre>
+      <p>
+        pip نسخه‌ی قدیمی را خودکار جایگزین می‌کند.
+      </p>
+
+      <div class="callout callout-note">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <div>
+          <div class="callout-title">نکته</div>
+          اگر دستور <code>pip</code> کار نکرد، از
+          <code>python -m pip</code> استفاده کنید:
+          <br><br>
+          <code>python -m pip install picopy-1.0.0-py3-none-any.whl</code>
+        </div>
+      </div>
+
+      <div class="callout callout-success">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div>
+          <div class="callout-title">تمام</div>
+          حالا Picopy نصب شده و آماده‌ی استفاده است. برای شروع،
+          به صفحه‌ی «شروع سریع» بروید.
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <a href="#intro" onclick="navigateTo('intro'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">معرفی →</span>
+        </a>
+        <a href="#quickstart" class="nav-next" onclick="navigateTo('quickstart'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">شروع سریع ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: QUICKSTART ═══════ -->
+    <div class="page" id="page-quickstart">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        شروع / شروع سریع
+      </div>
+      <h1>شروع سریع</h1>
+      <p class="lead">
+        بیایید با یک مثال ساده شروع کنیم. در کمتر از دو دقیقه، اولین
+        برنامه‌ی CLI خود را می‌سازید.
+      </p>
+
+      <h2>قدم ۱: یک فایل بسازید</h2>
+      <p>
+        یک فایل پایتون به نام <code>main.py</code> بسازید و کد زیر را
+        در آن بنویسید:
+      </p>
+      <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> App
+
+app = App(<span class="str">"MyTool"</span>)
+
+<span class="dec">@app.menu</span>(<span class="str">"Main"</span>)
+<span class="kw">def</span> <span class="fn">main</span>(m):
+    m.go(<span class="str">"Say Hi"</span>, say_hi)
+    m.quit()
+
+<span class="kw">def</span> <span class="fn">say_hi</span>():
+    app.print(<span class="str">"Hello!"</span>)
+    app.pause()
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    app.run()</code></pre>
+
+      <h2>قدم ۲: اجرا کنید</h2>
+      <pre><code>python main.py</code></pre>
+
+      <p>
+        یک منو نمایش داده می‌شود با دو گزینه:
+      </p>
+      <ul>
+        <li><strong>Say Hi</strong> — پیام <code>Hello!</code> را چاپ می‌کند</li>
+        <li><strong>Exit</strong> — از برنامه خارج می‌شود</li>
+      </ul>
+      <p>
+        با کلیدهای جهت‌دار (بالا/پایین) حرکت کنید و با Enter انتخاب کنید.
+        با ESC هم می‌توانید خارج شوید.
+      </p>
+
+      <h2>قدم ۳: شخصی‌سازی</h2>
+      <p>
+        حالا بیایید کمی شخصی‌سازی کنیم. رنگ، آیکون و عنوان را عوض کنید:
+      </p>
+      <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> App
+
+app = App(<span class="str">"MyTool"</span>, version=<span class="str">"1.0.0"</span>, theme=<span class="str">"dracula"</span>)
+
+<span class="dec">@app.menu</span>(<span class="str">"Main"</span>, title=<span class="str">"منوی اصلی"</span>, icon=<span class="str">"H"</span>, color=<span class="str">"cyan"</span>)
+<span class="kw">def</span> <span class="fn">main</span>(m):
+    m.go(<span class="str">"Settings"</span>, <span class="str">"settings"</span>, icon=<span class="str">"S"</span>, color=<span class="str">"yellow"</span>)
+    m.go(<span class="str">"About"</span>, <span class="str">"about"</span>, icon=<span class="str">"i"</span>, color=<span class="str">"green"</span>)
+    m.line()
+    m.quit(<span class="str">"Exit"</span>)
+
+<span class="dec">@app.form</span>(<span class="str">"Settings"</span>, icon=<span class="str">"S"</span>, color=<span class="str">"yellow"</span>)
+<span class="kw">def</span> <span class="fn">settings</span>(p):
+    p.text(<span class="str">"Username"</span>, default=<span class="str">"admin"</span>)
+    p.yes_no(<span class="str">"Dark mode?"</span>, default=<span class="kw">True</span>)
+
+    <span class="dec">@p.save</span>
+    <span class="kw">def</span> <span class="fn">save</span>(v):
+        app.ok(<span class="str">f"Saved: {v['username']}"</span>)
+        app.pause()
+
+<span class="dec">@app.form</span>(<span class="str">"About"</span>, icon=<span class="str">"i"</span>, color=<span class="str">"green"</span>)
+<span class="kw">def</span> <span class="fn">about</span>(p):
+    p.info(<span class="str">"MyTool v1.0.0"</span>)
+    p.info(<span class="str">"A tiny CLI framework."</span>)
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    app.run()</code></pre>
+
+      <p>
+        حالا برنامه‌ای دارید با منوی اصلی، صفحه‌ی تنظیمات و صفحه‌ی
+        درباره. کاربر با انتخاب هر گزینه به صفحه‌ی مربوطه می‌رود و
+        با Back یا ESC برمی‌گردد.
+      </p>
+
+      <h2>چرخه‌ی کار</h2>
+      <p>
+        Picopy بر اساس یک چرخه‌ی ساده کار می‌کند. در هر لحظه، یکی از
+        دو حالت فعال است: منو یا فرم. با هر انتخاب، حالت عوض می‌شود.
+        این چرخه تا زمانی که کاربر خارج شود ادامه دارد.
+      </p>
+      <ol class="steps">
+        <li>برنامه اجرا می‌شود، منوی اول نمایش داده می‌شود</li>
+        <li>کاربر یک گزینه را انتخاب می‌کند</li>
+        <li>اگر گزینه <code>go</code> باشد، به صفحه‌ی مقصد می‌رود</li>
+        <li>اگر گزینه <code>do</code> باشد، یک تابع اجرا می‌شود</li>
+        <li>در فرم، فیلدها یکی‌یکی پرسیده می‌شوند</li>
+        <li>در انتها کاربر ذخیره یا لغو می‌کند</li>
+        <li>به منوی قبلی برمی‌گردد و چرخه ادامه می‌یابد</li>
+      </ol>
+
+      <div class="callout callout-success">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div>
+          <div class="callout-title">تبریک</div>
+          شما اولین برنامه‌ی Picopy خود را ساختید. حالا می‌توانید
+          مفاهیم پیشرفته‌تر را یاد بگیرید.
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <a href="#install" onclick="navigateTo('install'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">نصب →</span>
+        </a>
+        <a href="#concepts" class="nav-next" onclick="navigateTo('concepts'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">مفاهیم اصلی ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: CONCEPTS ═══════ -->
+    <div class="page" id="page-concepts">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        مفاهیم / مفاهیم اصلی
+      </div>
+      <h1>مفاهیم اصلی</h1>
+      <p class="lead">
+        Picopy بر پایه‌ی سه مفهوم اساسی ساخته شده است. درک این سه
+        مفهوم، کلید استفاده از کتابخانه است.
+      </p>
+
+      <h2>App — مدیر کل برنامه</h2>
+      <p>
+        <code>App</code> قلب برنامه‌ی شماست. این کلاس مسئولیت‌های
+        زیر را بر عهده دارد:
+      </p>
+      <ul>
+        <li>نگهداری تنظیمات (عنوان، نسخه، تم، عرض)</li>
+        <li>ثبت منوها و فرم‌ها با دکوراتور</li>
+        <li>مدیریت ناوبری بین صفحات</li>
+        <li>نگهداری تاریخچه</li>
+        <li>چاپ پیام‌ها (موفقیت، خطا، هشدار، اطلاع)</li>
+        <li>نمایش Spinner و Progress</li>
+      </ul>
+      <p>برای ساخت یک App:</p>
+      <pre><code>app = App(<span class="str">"MyTool"</span>, version=<span class="str">"1.0.0"</span>, theme=<span class="str">"dark"</span>)</code></pre>
+
+      <h2>Menu — منو با دکمه‌ها</h2>
+      <p>
+        <code>Menu</code> یک صفحه‌ی تعاملی است که چند دکمه نمایش
+        می‌دهد. کاربر با کلیدهای جهت‌دار در آن حرکت می‌کند و با Enter
+        انتخاب می‌کند. هر دکمه یا به یک صفحه‌ی دیگر می‌رود (<code>go</code>)
+        یا یک تابع را اجرا می‌کند (<code>do</code>).
+      </p>
+
+      <h2>Form — صفحه‌ی ورودی</h2>
+      <p>
+        <code>Form</code> یک صفحه‌ی فرم‌محور است. چند فیلد دارد که
+        به ترتیب از کاربر پرسیده می‌شوند. در انتها کاربر می‌تواند
+        ذخیره یا لغو کند.
+      </p>
+
+      <h2>نحوه‌ی تعامل</h2>
+      <div class="grid">
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <h4>App</h4>
+          <p>مدیر کل. تنظیمات، ناوبری، چاپ، و Spinner.</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          <h4>Menu</h4>
+          <p>منو با دکمه‌ها. کاربر انتخاب می‌کند.</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          <h4>Form</h4>
+          <p>فرم با فیلدها. کاربر پر می‌کند.</p>
+        </div>
+      </div>
+
+      <h2>چرخه‌ی اجرا</h2>
+      <ol class="steps">
+        <li>صفحه‌ی فعلی پاک می‌شود (با دستور <code>cls</code>)</li>
+        <li>بر اساس متغیر کنترلی، منو یا فرم رسم می‌شود</li>
+        <li>ورودی کاربر گرفته می‌شود</li>
+        <li>بر اساس انتخاب، صفحه‌ی بعدی مشخص می‌شود</li>
+        <li>به ابتدای حلقه برمی‌گردد</li>
+      </ol>
+
+      <div class="page-nav">
+        <a href="#quickstart" onclick="navigateTo('quickstart'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">شروع سریع →</span>
+        </a>
+        <a href="#menus" class="nav-next" onclick="navigateTo('menus'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">منوها ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: MENUS ═══════ -->
+    <div class="page" id="page-menus">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        مفاهیم / منوها
+      </div>
+      <h1>منوها</h1>
+      <p class="lead">
+        منو یکی از پرکاربردترین اجزای Picopy است. با منو می‌توانید
+        گزینه‌های مختلف را به کاربر نمایش دهید.
+      </p>
+
+      <h2>ساختار پایه</h2>
+      <pre><code><span class="dec">@app.menu</span>(name, title=<span class="kw">None</span>, icon=<span class="str">""</span>, color=<span class="kw">None</span>)
+<span class="kw">def</span> <span class="fn">menu_name</span>(m):
+    <span class="cm"># دکمه‌ها اینجا</span>
+    <span class="kw">pass</span></code></pre>
+
+      <h2>متدهای منو</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>متد</th>
+            <th>توضیح</th>
+            <th>مثال</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>m.go()</code></td>
+            <td>رفتن به صفحه یا منوی دیگر</td>
+            <td><code>m.go("Settings", "settings")</code></td>
+          </tr>
+          <tr>
+            <td><code>m.do()</code></td>
+            <td>اجرای یک تابع</td>
+            <td><code>m.do("Run", my_fn)</code></td>
+          </tr>
+          <tr>
+            <td><code>m.line()</code></td>
+            <td>خط جداکننده</td>
+            <td><code>m.line()</code></td>
+          </tr>
+          <tr>
+            <td><code>m.back()</code></td>
+            <td>دکمه‌ی برگشت</td>
+            <td><code>m.back()</code></td>
+          </tr>
+          <tr>
+            <td><code>m.quit()</code></td>
+            <td>دکمه‌ی خروج</td>
+            <td><code>m.quit("Exit")</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>مثال کامل منو</h2>
+      <pre><code><span class="dec">@app.menu</span>(<span class="str">"Main"</span>, title=<span class="str">"منوی اصلی"</span>, icon=<span class="str">"H"</span>, color=<span class="str">"cyan"</span>)
+<span class="kw">def</span> <span class="fn">main</span>(m):
+    m.go(<span class="str">"Settings"</span>, <span class="str">"settings"</span>, icon=<span class="str">"S"</span>, color=<span class="str">"yellow"</span>)
+    m.go(<span class="str">"Profile"</span>, <span class="str">"profile"</span>, icon=<span class="str">"P"</span>, color=<span class="str">"green"</span>)
+    m.line()
+    m.quit(<span class="str">"Exit"</span>)</code></pre>
+
+      <h2>منوهای تودرتو</h2>
+      <pre><code><span class="dec">@app.menu</span>(<span class="str">"Main"</span>)
+<span class="kw">def</span> <span class="fn">main</span>(m):
+    m.go(<span class="str">"Tools"</span>, <span class="str">"tools"</span>)
+    m.quit()
+
+<span class="dec">@app.menu</span>(<span class="str">"Tools"</span>, icon=<span class="str">"T"</span>)
+<span class="kw">def</span> <span class="fn">tools</span>(m):
+    m.do(<span class="str">"Format"</span>, format_file)
+    m.do(<span class="str">"Validate"</span>, validate_file)
+    m.line()
+    m.back()</code></pre>
+
+      <div class="callout callout-note">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <div>
+          <div class="callout-title">نکته</div>
+          شناسه‌ی منو و رشته‌ی دکمه باید دقیقاً یکسان باشند.
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <a href="#concepts" onclick="navigateTo('concepts'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">مفاهیم اصلی →</span>
+        </a>
+        <a href="#forms" class="nav-next" onclick="navigateTo('forms'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">فرم‌ها ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: FORMS ═══════ -->
+    <div class="page" id="page-forms">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        مفاهیم / فرم‌ها
+      </div>
+      <h1>فرم‌ها</h1>
+      <p class="lead">
+        فرم‌ها برای گرفتن ورودی از کاربر استفاده می‌شوند. هر فرم
+        مجموعه‌ای از فیلدهاست که به ترتیب پرسیده می‌شوند.
+      </p>
+
+      <h2>ساختار پایه</h2>
+      <pre><code><span class="dec">@app.form</span>(name, title=<span class="kw">None</span>, icon=<span class="str">""</span>, color=<span class="kw">None</span>)
+<span class="kw">def</span> <span class="fn">form_name</span>(p):
+    <span class="cm"># فیلدها اینجا</span>
+    <span class="kw">pass</span></code></pre>
+
+      <h2>رویدادها</h2>
+      <pre><code><span class="dec">@p.save</span>
+<span class="kw">def</span> <span class="fn">save</span>(values):
+    app.ok(<span class="str">f"Saved: {values['username']}"</span>)
+    app.pause()
+
+<span class="dec">@p.cancel</span>
+<span class="kw">def</span> <span class="fn">cancel</span>():
+    app.warn(<span class="str">"Cancelled"</span>)
+    app.pause()</code></pre>
+
+      <h2>دسترسی به مقادیر</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>برچسب فیلد</th>
+            <th>کلید دیکشنری</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Username</td><td><code>username</code></td></tr>
+          <tr><td>Full Name</td><td><code>full_name</code></td></tr>
+          <tr><td>Dark mode?</td><td><code>dark_mode</code></td></tr>
+        </tbody>
+      </table>
+
+      <h2>مثال کامل فرم</h2>
+      <pre><code><span class="dec">@app.form</span>(<span class="str">"Settings"</span>, icon=<span class="str">"S"</span>, color=<span class="str">"yellow"</span>)
+<span class="kw">def</span> <span class="fn">settings</span>(p):
+    p.text(<span class="str">"Username"</span>, default=<span class="str">"admin"</span>)
+    p.password(<span class="str">"Password"</span>)
+    p.yes_no(<span class="str">"Dark mode?"</span>, default=<span class="kw">True</span>)
+    p.choose(<span class="str">"Theme"</span>, [<span class="str">"dark"</span>, <span class="str">"light"</span>, <span class="str">"dracula"</span>])
+    p.number(<span class="str">"Port"</span>, default=<span class="num">8080</span>, min=<span class="num">1</span>, max=<span class="num">65535</span>)
+
+    <span class="dec">@p.save</span>
+    <span class="kw">def</span> <span class="fn">save</span>(v):
+        app.ok(<span class="str">f"Saved: {v['username']}"</span>)
+        app.pause()</code></pre>
+
+      <div class="page-nav">
+        <a href="#menus" onclick="navigateTo('menus'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">منوها →</span>
+        </a>
+        <a href="#fields" class="nav-next" onclick="navigateTo('fields'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">فیلدها ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: FIELDS ═══════ -->
+    <div class="page" id="page-fields">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"/><path d="M12 4v16"/></svg>
+        مفاهیم / فیلدها
+      </div>
+      <h1>فیلدها</h1>
+      <p class="lead">
+        هر فرم می‌تواند چندین نوع فیلد داشته باشد. هر فیلد یک نوع
+        ورودی خاص را از کاربر می‌گیرد.
+      </p>
+
+      <h2>متد text — ورودی متن</h2>
+      <pre><code>p.text(<span class="str">"Username"</span>)
+p.text(<span class="str">"Username"</span>, default=<span class="str">"admin"</span>)
+p.text(<span class="str">"Username"</span>, placeholder=<span class="str">"your name"</span>)</code></pre>
+
+      <h2>متد password — ورودی رمز</h2>
+      <pre><code>p.password(<span class="str">"Password"</span>)</code></pre>
+
+      <h2>متد yes_no — سوال بله/خیر</h2>
+      <pre><code>p.yes_no(<span class="str">"Dark mode?"</span>, default=<span class="kw">True</span>)</code></pre>
+
+      <h2>متد choose — انتخاب تک‌گزینه</h2>
+      <pre><code>p.choose(<span class="str">"Theme"</span>, [<span class="str">"dark"</span>, <span class="str">"light"</span>, <span class="str">"dracula"</span>])</code></pre>
+
+      <h2>متد many — انتخاب چندگزینه</h2>
+      <pre><code>p.many(<span class="str">"Skills"</span>, [<span class="str">"Python"</span>, <span class="str">"Go"</span>, <span class="str">"Rust"</span>])</code></pre>
+
+      <h2>متد number — ورودی عدد</h2>
+      <pre><code>p.number(<span class="str">"Port"</span>, default=<span class="num">8080</span>, min=<span class="num">1</span>, max=<span class="num">65535</span>)</code></pre>
+
+      <h2>متد path — ورودی مسیر</h2>
+      <pre><code>p.path(<span class="str">"Config file"</span>, default=<span class="str">"config.json"</span>)</code></pre>
+
+      <h2>متد info — متن ثابت</h2>
+      <pre><code>p.info(<span class="str">"Please fill the form below"</span>)
+p.info(<span class="str">"[cyan]=== Account ===[/cyan]"</span>)</code></pre>
+
+      <h2>جدول کامل</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>متد</th>
+            <th>خروجی</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>p.text()</code></td><td>رشته</td></tr>
+          <tr><td><code>p.password()</code></td><td>رشته</td></tr>
+          <tr><td><code>p.yes_no()</code></td><td>True / False</td></tr>
+          <tr><td><code>p.choose()</code></td><td>رشته</td></tr>
+          <tr><td><code>p.many()</code></td><td>لیست رشته</td></tr>
+          <tr><td><code>p.number()</code></td><td>عدد صحیح</td></tr>
+          <tr><td><code>p.path()</code></td><td>رشته</td></tr>
+          <tr><td><code>p.info()</code></td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <div class="page-nav">
+        <a href="#forms" onclick="navigateTo('forms'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">فرم‌ها →</span>
+        </a>
+        <a href="#colors" class="nav-next" onclick="navigateTo('colors'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">رنگ‌ها ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: COLORS ═══════ -->
+    <div class="page" id="page-colors">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+        ظاهر / رنگ‌ها
+      </div>
+      <h1>رنگ‌ها</h1>
+      <p class="lead">
+        Picopy از طیف گسترده‌ای از رنگ‌ها پشتیبانی می‌کند.
+      </p>
+
+      <h2>رنگ‌های پایه</h2>
+      <table>
+        <thead>
+          <tr><th>نام</th><th>کاربرد</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>black</code></td><td>متن روی پس‌زمینه‌ی روشن</td></tr>
+          <tr><td><code>red</code></td><td>خطا</td></tr>
+          <tr><td><code>green</code></td><td>موفقیت</td></tr>
+          <tr><td><code>yellow</code></td><td>هشدار</td></tr>
+          <tr><td><code>blue</code></td><td>اطلاعات</td></tr>
+          <tr><td><code>magenta</code></td><td>تأکید</td></tr>
+          <tr><td><code>cyan</code></td><td>عنوان</td></tr>
+          <tr><td><code>white</code></td><td>متن عادی</td></tr>
+        </tbody>
+      </table>
+
+      <h2>رنگ‌های روشن و اضافی</h2>
+      <pre><code>bright_black, bright_red, bright_green, bright_yellow,
+bright_blue, bright_magenta, bright_cyan, bright_white
+
+orange, pink, purple, teal, lime, gold, silver,
+navy, maroon, aqua, violet, coral, mint, peach,
+crimson, emerald, amber, lavender</code></pre>
+
+      <h2>رنگ‌های HEX</h2>
+      <pre><code>app.print(<span class="str">"Hello"</span>, color=<span class="str">"#ff00aa"</span>)</code></pre>
+
+      <h2>رنگ per-item</h2>
+      <pre><code>m.go(<span class="str">"Danger"</span>, <span class="str">"danger"</span>, color=<span class="str">"red"</span>)
+m.go(<span class="str">"Safe"</span>, <span class="str">"safe"</span>, color=<span class="str">"green"</span>)</code></pre>
+
+      <h2>Markup رنگی</h2>
+      <pre><code>app.print(<span class="str">"[red]Error[/red]"</span>)
+app.print(<span class="str">"[bold cyan]Important[/bold cyan]"</span>)</code></pre>
+
+      <div class="page-nav">
+        <a href="#fields" onclick="navigateTo('fields'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">فیلدها →</span>
+        </a>
+        <a href="#themes" class="nav-next" onclick="navigateTo('themes'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">تم‌ها ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: THEMES ═══════ -->
+    <div class="page" id="page-themes">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        ظاهر / تم‌ها
+      </div>
+      <h1>تم‌ها</h1>
+      <p class="lead">
+        تم‌ها رنگ‌بندی کلی برنامه را تعیین می‌کنند.
+      </p>
+
+      <h2>تم‌های آماده</h2>
+      <table>
+        <thead>
+          <tr><th>تم</th><th>ویژگی</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>dark</code></td><td>پیش‌فرض، آبی روشن</td></tr>
+          <tr><td><code>light</code></td><td>برای ترمینال روشن</td></tr>
+          <tr><td><code>dracula</code></td><td>بنفش</td></tr>
+          <tr><td><code>nord</code></td><td>سرد</td></tr>
+          <tr><td><code>gruvbox</code></td><td>گرم</td></tr>
+          <tr><td><code>mono</code></td><td>بدون رنگ</td></tr>
+        </tbody>
+      </table>
+
+      <pre><code>app = App(<span class="str">"MyTool"</span>, theme=<span class="str">"dracula"</span>)</code></pre>
+
+      <h2>تم سفارشی</h2>
+      <pre><code>app = App(<span class="str">"MyTool"</span>, theme={
+    <span class="str">"primary"</span>: <span class="str">"magenta"</span>,
+    <span class="str">"success"</span>: <span class="str">"green"</span>,
+    <span class="str">"error"</span>: <span class="str">"red"</span>,
+    <span class="str">"warning"</span>: <span class="str">"yellow"</span>,
+    <span class="str">"info"</span>: <span class="str">"blue"</span>,
+    <span class="str">"muted"</span>: <span class="str">"gray"</span>,
+    <span class="str">"text"</span>: <span class="str">"white"</span>,
+    <span class="str">"title"</span>: <span class="str">"magenta"</span>,
+    <span class="str">"border"</span>: <span class="str">"gray"</span>,
+})</code></pre>
+
+      <div class="page-nav">
+        <a href="#colors" onclick="navigateTo('colors'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">رنگ‌ها →</span>
+        </a>
+        <a href="#messages" class="nav-next" onclick="navigateTo('messages'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">پیام‌ها ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: MESSAGES ═══════ -->
+    <div class="page" id="page-messages">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        ظاهر / پیام‌ها
+      </div>
+      <h1>پیام‌ها</h1>
+      <p class="lead">
+        Picopy چند نوع پیام آماده دارد.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>متد</th><th>خروجی</th><th>رنگ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>app.ok()</code></td><td>[OK] پیام</td><td>سبز</td></tr>
+          <tr><td><code>app.error()</code></td><td>[X] پیام</td><td>قرمز</td></tr>
+          <tr><td><code>app.warn()</code></td><td>[!] پیام</td><td>زرد</td></tr>
+          <tr><td><code>app.info()</code></td><td>[i] پیام</td><td>آبی</td></tr>
+          <tr><td><code>app.pause()</code></td><td>منتظر Enter</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <pre><code>app.ok(<span class="str">"Saved!"</span>)
+app.error(<span class="str">"Failed!"</span>)
+app.warn(<span class="str">"Careful"</span>)
+app.info(<span class="str">"Loading..."</span>)
+app.pause()</code></pre>
+
+      <h2>Markup</h2>
+      <pre><code>app.print(<span class="str">"[red]Error[/red]"</span>)
+app.print(<span class="str">"[bold cyan]Important[/bold cyan]"</span>)</code></pre>
+
+      <div class="page-nav">
+        <a href="#themes" onclick="navigateTo('themes'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">تم‌ها →</span>
+        </a>
+        <a href="#spinner" class="nav-next" onclick="navigateTo('spinner'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">Spinner ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: SPINNER ═══════ -->
+    <div class="page" id="page-spinner">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ابزارها / Spinner
+      </div>
+      <h1>Spinner</h1>
+      <p class="lead">
+        وقتی عملیاتی طول می‌کشد، یک چرخنده نمایش دهید.
+      </p>
+
+      <pre><code><span class="kw">with</span> app.spinner(<span class="str">"Loading..."</span>):
+    do_something()</code></pre>
+
+      <h2>مثال کامل</h2>
+      <pre><code><span class="kw">def</span> <span class="fn">download</span>():
+    <span class="kw">with</span> app.spinner(<span class="str">"Downloading..."</span>):
+        <span class="kw">import</span> time
+        time.sleep(<span class="num">3</span>)
+    app.ok(<span class="str">"Downloaded!"</span>)
+    app.pause()</code></pre>
+
+      <div class="page-nav">
+        <a href="#messages" onclick="navigateTo('messages'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">پیام‌ها →</span>
+        </a>
+        <a href="#progress" class="nav-next" onclick="navigateTo('progress'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">Progress ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: PROGRESS ═══════ -->
+    <div class="page" id="page-progress">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        ابزارها / Progress
+      </div>
+      <h1>Progress Bar</h1>
+      <p class="lead">
+        برای عملیات مرحله‌ای، نوار پیشرفت نمایش دهید.
+      </p>
+
+      <pre><code><span class="kw">with</span> app.progress(<span class="num">100</span>, prefix=<span class="str">"Processing: "</span>) <span class="kw">as</span> bar:
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="num">100</span>):
+        do_one_item()
+        bar.update()</code></pre>
+
+      <h2>مثال کامل</h2>
+      <pre><code><span class="kw">def</span> <span class="fn">process_files</span>():
+    files = list(range(<span class="num">50</span>))
+    <span class="kw">with</span> app.progress(len(files), prefix=<span class="str">"Processing: "</span>) <span class="kw">as</span> bar:
+        <span class="kw">for</span> f <span class="kw">in</span> files:
+            <span class="kw">import</span> time
+            time.sleep(<span class="num">0.05</span>)
+            bar.update()
+    app.ok(<span class="str">"All files processed!"</span>)
+    app.pause()</code></pre>
+
+      <div class="page-nav">
+        <a href="#spinner" onclick="navigateTo('spinner'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">Spinner →</span>
+        </a>
+        <a href="#quickask" class="nav-next" onclick="navigateTo('quickask'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">سوال سریع ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: QUICKASK ═══════ -->
+    <div class="page" id="page-quickask">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        ابزارها / سوال سریع
+      </div>
+      <h1>سوالات سریع</h1>
+      <p class="lead">
+        اگر نمی‌خواهید فرم کامل بسازید، از سوالات سریع استفاده کنید.
+      </p>
+
+      <h2>پرسیدن متن</h2>
+      <pre><code>name = app.ask(<span class="str">"What's your name?"</span>)</code></pre>
+
+      <h2>تأیید</h2>
+      <pre><code><span class="kw">if</span> app.confirm(<span class="str">"Are you sure?"</span>):
+    do_it()</code></pre>
+
+      <h2>انتخاب سریع</h2>
+      <pre><code>color = app.pick(<span class="str">"Choose a color"</span>, [<span class="str">"red"</span>, <span class="str">"green"</span>, <span class="str">"blue"</span>])</code></pre>
+
+      <div class="page-nav">
+        <a href="#progress" onclick="navigateTo('progress'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">Progress →</span>
+        </a>
+        <a href="#navigation" class="nav-next" onclick="navigateTo('navigation'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">ناوبری ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: NAVIGATION ═══════ -->
+    <div class="page" id="page-navigation">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        ابزارها / ناوبری
+      </div>
+      <h1>ناوبری</h1>
+      <p class="lead">
+        Picopy یک سیستم ناوبری هوشمند با تاریخچه دارد.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>متد</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>app.goto()</code></td><td>رفتن به صفحه</td></tr>
+          <tr><td><code>app.go_back()</code></td><td>برگشت به قبل</td></tr>
+          <tr><td><code>app.history</code></td><td>تاریخچه</td></tr>
+        </tbody>
+      </table>
+
+      <pre><code>app.goto(<span class="str">"settings"</span>)
+app.go_back()
+print(app.history)</code></pre>
+
+      <div class="callout callout-note">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <div>
+          <div class="callout-title">ناوبری خودکار</div>
+          با Back یا ESC، خودکار به صفحه‌ی قبل برمی‌گردد.
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <a href="#quickask" onclick="navigateTo('quickask'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">سوال سریع →</span>
+        </a>
+        <a href="#examples" class="nav-next" onclick="navigateTo('examples'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">مثال‌ها ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: EXAMPLES ═══════ -->
+    <div class="page" id="page-examples">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        راهنما / مثال‌ها
+      </div>
+      <h1>مثال‌ها</h1>
+      <p class="lead">
+        چند مثال کامل و کاربردی.
+      </p>
+
+      <h2>مثال ۱: Task Manager</h2>
+      <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> App<span class="kw">import</span> json
+<span class="kw">from</span> pathlib <span class="kw">import</span> Path
+
+app = App(<span class="str">"Tasks"</span>, theme=<span class="str">"dracula"</span>)
+DB = Path(<span class="str">"tasks.json"</span>)
+
+<span class="kw">def</span> <span class="fn">load_tasks</span>():
+    <span class="kw">return</span> json.loads(DB.read_text()) <span class="kw">if</span> DB.exists() <span class="kw">else</span> []
+
+<span class="kw">def</span> <span class="fn">save_tasks</span>(tasks):
+    DB.write_text(json.dumps(tasks, indent=<span class="num">2</span>))
+
+<span class="dec">@app.menu</span>(<span class="str">"Main"</span>, icon=<span class="str">"T"</span>)
+<span class="kw">def</span> <span class="fn">main</span>(m):
+    m.do(<span class="str">"List"</span>, list_tasks)
+    m.go(<span class="str">"Add Task"</span>, <span class="str">"add"</span>)
+    m.line()
+    m.quit()
+
+<span class="kw">def</span> <span class="fn">list_tasks</span>():
+    tasks = load_tasks()
+    <span class="kw">if</span> <span class="kw">not</span> tasks:
+        app.warn(<span class="str">"No tasks yet!"</span>)
+    <span class="kw">else</span>:
+        <span class="kw">for</span> i, t <span class="kw">in</span> enumerate(tasks, <span class="num">1</span>):
+            app.print(<span class="str">f"  {i}. {t['text']}"</span>)
+    app.pause()
+
+<span class="dec">@app.form</span>(<span class="str">"Add"</span>, icon=<span class="str">"+"</span>)
+<span class="kw">def</span> <span class="fn">add</span>(p):
+    p.text(<span class="str">"Task"</span>)
+    p.choose(<span class="str">"Priority"</span>, [<span class="str">"Low"</span>, <span class="str">"Medium"</span>, <span class="str">"High"</span>])
+
+    <span class="dec">@p.save</span>
+    <span class="kw">def</span> <span class="fn">save</span>(v):
+        tasks = load_tasks()
+        tasks.append({<span class="str">"text"</span>: v[<span class="str">"task"</span>]})
+        save_tasks(tasks)
+        app.ok(<span class="str">f"Task added!"</span>)
+        app.pause()
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    app.run()</code></pre>
+
+      <h2>مثال ۲: System Info</h2>
+      <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> App
+<span class="kw">import</span> platform
+
+app = App(<span class="str">"System"</span>, theme=<span class="str">"nord"</span>)
+
+<span class="dec">@app.menu</span>(<span class="str">"Main"</span>)
+<span class="kw">def</span> <span class="fn">main</span>(m):
+    m.do(<span class="str">"Overview"</span>, overview)
+    m.do(<span class="str">"Disk"</span>, disk)
+    m.line()
+    m.quit()
+
+<span class="kw">def</span> <span class="fn">overview</span>():
+    app.print(<span class="str">f"OS: [cyan]{platform.system()}[/cyan]"</span>)
+    app.print(<span class="str">f"Python: [cyan]{platform.python_version()}[/cyan]"</span>)
+    app.pause()
+
+<span class="kw">def</span> <span class="fn">disk</span>():
+    <span class="kw">with</span> app.spinner(<span class="str">"Checking disk..."</span>):
+        <span class="kw">import</span> time
+        time.sleep(<span class="num">1</span>)
+    app.ok(<span class="str">"Done!"</span>)
+    app.pause()
+
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    app.run()</code></pre>
+
+      <div class="page-nav">
+        <a href="#navigation" onclick="navigateTo('navigation'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">ناوبری →</span>
+        </a>
+        <a href="#errors" class="nav-next" onclick="navigateTo('errors'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">خطاهای رایج ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: ERRORS ═══════ -->
+    <div class="page" id="page-errors">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        راهنما / خطاهای رایج
+      </div>
+      <h1>خطاهای رایج</h1>
+      <p class="lead">
+        اگر با خطایی مواجه شدید، این جدول را ببینید.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>خطا</th><th>راه‌حل</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>ImportError: cannot import name 'App'</code></td>
+            <td>کد کامل کتابخانه را جایگزین کنید</td>
+          </tr>
+          <tr>
+            <td><code>SyntaxError: from __future__</code></td>
+            <td>خط <code>__version__</code> را بعد از <code>from __future__</code> بگذارید</td>
+          </tr>
+          <tr>
+            <td><code>Unknown: 'settings'</code></td>
+            <td>اسم صفحه و رشته‌ی دکمه را یکسان کنید (حروف کوچک)</td>
+          </tr>
+          <tr>
+            <td><code>ModuleNotFoundError: questionary</code></td>
+            <td><code>pip install questionary</code></td>
+          </tr>
+          <tr>
+            <td><code>unknown-0.0.0-py3-none-any.whl</code></td>
+            <td><code>pyproject.toml</code> را پر کنید</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-warning">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div>
+          <div class="callout-title">قاعده‌ی طلایی</div>
+          اسم صفحه و رشته‌ی دکمه باید دقیقاً یکسان باشند.
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <a href="#examples" onclick="navigateTo('examples'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">مثال‌ها →</span>
+        </a>
+        <a href="#faq" class="nav-next" onclick="navigateTo('faq'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">سوالات متداول ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: FAQ ═══════ -->
+    <div class="page" id="page-faq">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        راهنما / سوالات متداول
+      </div>
+      <h1>سوالات متداول</h1>
+
+      <h2>آیا Picopy رایگان است؟</h2>
+      <p>بله، Picopy یک کتابخانه‌ی متن‌باز است.</p>
+
+      <h2>روی چه سیستم‌عامل‌هایی کار می‌کند؟</h2>
+      <p>Windows، Linux و macOS.</p>
+
+      <h2>آیا نیاز به نصب questionary دارم؟</h2>
+      <p>اگر با فایل WHL نصب کنید، pip خودش نصبش می‌کند.</p>
+
+      <h2>چطور یک صفحه‌ی جدید بسازم؟</h2>
+      <pre><code><span class="dec">@app.menu</span>(<span class="str">"NewPage"</span>)
+<span class="kw">def</span> <span class="fn">new_page</span>(m):
+    m.back()</code></pre>
+
+      <h2>چطور رنگ‌ها را غیرفعال کنم؟</h2>
+      <pre><code>app = App(<span class="str">"MyTool"</span>, theme=<span class="str">"mono"</span>)</code></pre>
+
+      <h2>چطور کد را در چند فایل تقسیم کنم؟</h2>
+      <pre><code><span class="kw">def</span> <span class="fn">register</span>(app):
+    <span class="dec">@app.menu</span>(<span class="str">"Tasks"</span>)
+    <span class="kw">def</span> <span class="fn">tasks_menu</span>(m):
+        m.back()</code></pre>
+
+      <h2>آیا از فارسی پشتیبانی می‌کند؟</h2>
+      <p>بله، از Unicode پشتیبانی می‌کند.</p>
+
+      <div class="page-nav">
+        <a href="#errors" onclick="navigateTo('errors'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">خطاهای رایج →</span>
+        </a>
+        <span></span>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// ─── Theme ───
+function toggleTheme() {
+  const html = document.documentElement;
+  const icon = document.getElementById('themeIcon');
+  if (html.getAttribute('data-theme') === 'dark') {
+    html.removeAttribute('data-theme');
+    icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    localStorage.setItem('theme', 'light');
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+    localStorage.setItem('theme', 'dark');
+  }
+}
+
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('themeIcon').innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+  }
+})();
+
+// ─── Navigation ───
+function navigateTo(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + pageId);
+  if (target) target.classList.add('active');
+  
+  document.querySelectorAll('.sidebar a').forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('data-page') === pageId) a.classList.add('active');
+  });
+  
+  history.pushState(null, '', '#' + pageId);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  if (window.innerWidth < 900) {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('show');
+  }
+}
+
+function handleHash() {
+  const hash = window.location.hash.slice(1);
+  if (hash && document.getElementById('page-' + hash)) {
+    navigateTo(hash);
+  }
+}
+
+window.addEventListener('load', handleHash);
+window.addEventListener('hashchange', handleHash);
+
+// ─── Sidebar ───
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+}
+
+// ─── Search ───
+function searchDocs() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const currentPage = document.querySelector('.page.active');
+  if (!currentPage) return;
+  
+  if (query.length < 2) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('search-hidden'));
+    return;
+  }
+  
+  document.querySelectorAll('.page').forEach(page => {
+    const text = page.textContent.toLowerCase();
+    if (text.includes(query)) {
+      page.classList.remove('search-hidden');
+      if (!page.classList.contains('active')) {
+        const pageId = page.id.replace('page-', '');
+        navigateTo(pageId);
+      }
+    } else {
+      page.classList.add('search-hidden');
+    }
+  });
+}
+
+// ─── Keyboard ───
+document.addEventListener('keydown', (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    document.getElementById('searchInput').focus();
+  }
+  if (e.key === 'Escape') {
+    const search = document.getElementById('searchInput');
+    if (search === document.activeElement) {
+      search.blur();
+      search.value = '';
+      searchDocs();
+    }
+  }
+});
+</script>
+</body>
+</html>
