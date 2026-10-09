@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Picopy — مستندات رسمی</title>
+<title>Picopy — مستندات کامل</title>
 <style>
   :root {
     --bg: #ffffff;
@@ -40,7 +40,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -52,7 +51,6 @@
     transition: background 0.2s, color 0.2s;
   }
 
-  /* ─── Top Bar ─── */
   .topbar {
     position: sticky;
     top: 0;
@@ -66,11 +64,7 @@
     gap: 16px;
   }
 
-  .topbar-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
+  .topbar-left { display: flex; align-items: center; gap: 14px; }
 
   .logo {
     font-size: 18px;
@@ -93,15 +87,9 @@
     font-weight: 600;
   }
 
-  .topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+  .topbar-right { display: flex; align-items: center; gap: 12px; }
 
-  .search-box {
-    position: relative;
-  }
+  .search-box { position: relative; }
 
   .search-box input {
     background: var(--bg-alt);
@@ -145,20 +133,11 @@
     transition: all 0.2s;
   }
 
-  .theme-toggle:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
   .theme-toggle svg { width: 17px; height: 17px; }
 
-  /* ─── Layout ─── */
-  .layout {
-    display: flex;
-    min-height: calc(100vh - 60px);
-  }
+  .layout { display: flex; min-height: calc(100vh - 60px); }
 
-  /* ─── Sidebar ─── */
   .sidebar {
     width: 280px;
     background: var(--sidebar-bg);
@@ -172,14 +151,9 @@
   }
 
   .sidebar::-webkit-scrollbar { width: 6px; }
-  .sidebar::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 3px;
-  }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  .sidebar-section {
-    margin-bottom: 22px;
-  }
+  .sidebar-section { margin-bottom: 22px; }
 
   .sidebar-title {
     font-size: 11px;
@@ -203,17 +177,9 @@
     cursor: pointer;
   }
 
-  .sidebar a svg {
-    width: 15px;
-    height: 15px;
-    flex-shrink: 0;
-    opacity: 0.7;
-  }
+  .sidebar a svg { width: 15px; height: 15px; flex-shrink: 0; opacity: 0.7; }
 
-  .sidebar a:hover {
-    color: var(--text);
-    background: var(--bg);
-  }
+  .sidebar a:hover { color: var(--text); background: var(--bg); }
 
   .sidebar a.active {
     color: var(--accent);
@@ -224,7 +190,6 @@
 
   .sidebar a.active svg { opacity: 1; }
 
-  /* ─── Main Content ─── */
   .main {
     flex: 1;
     padding: 40px 60px 80px;
@@ -265,7 +230,7 @@
   h2 {
     font-size: 24px;
     font-weight: 600;
-    margin: 40px 0 16px;
+    margin: 44px 0 16px;
     padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
   }
@@ -273,7 +238,7 @@
   h3 {
     font-size: 19px;
     font-weight: 600;
-    margin: 28px 0 12px;
+    margin: 30px 0 12px;
   }
 
   h4 {
@@ -282,28 +247,14 @@
     margin: 22px 0 10px;
   }
 
-  p {
-    margin-bottom: 16px;
-    color: var(--text);
-  }
+  p { margin-bottom: 16px; }
 
-  a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-
+  a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-  strong { font-weight: 600; }
-
-  ul, ol {
-    margin: 12px 0 18px;
-    padding-right: 26px;
-  }
-
+  ul, ol { margin: 12px 0 18px; padding-right: 26px; }
   li { margin: 6px 0; }
 
-  /* ─── Code ─── */
   code {
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
     font-size: 13px;
@@ -354,7 +305,6 @@
   .cm { color: #6e7781; font-style: italic; }
   .num { color: #0550ae; }
   .dec { color: #8250df; }
-  .op { color: #cf222e; }
 
   [data-theme="dark"] .kw { color: #ff7b72; }
   [data-theme="dark"] .str { color: #a5d6ff; }
@@ -362,9 +312,7 @@
   [data-theme="dark"] .cm { color: #8b949e; }
   [data-theme="dark"] .num { color: #79c0ff; }
   [data-theme="dark"] .dec { color: #d2a8ff; }
-  [data-theme="dark"] .op { color: #ff7b72; }
 
-  /* ─── Table ─── */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -395,7 +343,6 @@
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: var(--bg-alt); }
 
-  /* ─── Callouts ─── */
   .callout {
     padding: 14px 18px;
     border-radius: 8px;
@@ -407,44 +354,22 @@
     gap: 12px;
   }
 
-  .callout-icon {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-    margin-top: 3px;
-  }
+  .callout-icon { flex-shrink: 0; width: 18px; height: 18px; margin-top: 3px; }
 
-  .callout-note {
-    background: var(--accent-soft);
-    border-color: var(--accent);
-  }
+  .callout-note { background: var(--accent-soft); border-color: var(--accent); }
   .callout-note .callout-icon { color: var(--accent); }
 
-  .callout-warning {
-    background: rgba(154, 103, 0, 0.08);
-    border-color: var(--warning);
-  }
+  .callout-warning { background: rgba(154, 103, 0, 0.08); border-color: var(--warning); }
   .callout-warning .callout-icon { color: var(--warning); }
 
-  .callout-danger {
-    background: rgba(207, 34, 46, 0.08);
-    border-color: var(--danger);
-  }
+  .callout-danger { background: rgba(207, 34, 46, 0.08); border-color: var(--danger); }
   .callout-danger .callout-icon { color: var(--danger); }
 
-  .callout-success {
-    background: rgba(26, 127, 55, 0.08);
-    border-color: var(--success);
-  }
+  .callout-success { background: rgba(26, 127, 55, 0.08); border-color: var(--success); }
   .callout-success .callout-icon { color: var(--success); }
 
-  .callout-title {
-    font-weight: 700;
-    margin-bottom: 4px;
-    font-size: 14px;
-  }
+  .callout-title { font-weight: 700; margin-bottom: 4px; font-size: 14px; }
 
-  /* ─── Grid ─── */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -466,28 +391,10 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
-  .card-icon {
-    width: 32px;
-    height: 32px;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
+  .card-icon { width: 32px; height: 32px; color: var(--accent); margin-bottom: 12px; }
+  .card h4 { margin: 0 0 8px; color: var(--text); font-size: 15px; font-weight: 600; }
+  .card p { font-size: 13.5px; color: var(--text-muted); margin: 0; line-height: 1.7; }
 
-  .card h4 {
-    margin: 0 0 8px;
-    color: var(--text);
-    font-size: 15px;
-    font-weight: 600;
-  }
-
-  .card p {
-    font-size: 13.5px;
-    color: var(--text-muted);
-    margin: 0;
-    line-height: 1.7;
-  }
-
-  /* ─── Page Nav ─── */
   .page-nav {
     display: flex;
     justify-content: space-between;
@@ -522,15 +429,9 @@
     letter-spacing: 0.5px;
   }
 
-  .page-nav .nav-title {
-    font-size: 14px;
-    color: var(--accent);
-    font-weight: 600;
-  }
-
+  .page-nav .nav-title { font-size: 14px; color: var(--accent); font-weight: 600; }
   .page-nav .nav-next { text-align: left; }
 
-  /* ─── Hero ─── */
   .hero {
     text-align: center;
     padding: 60px 24px;
@@ -565,12 +466,7 @@
     line-height: 1.8;
   }
 
-  .buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
   .btn {
     display: inline-flex;
@@ -588,33 +484,13 @@
 
   .btn svg { width: 16px; height: 16px; }
 
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-  }
-  .btn-primary:hover {
-    background: var(--accent-hover);
-    text-decoration: none;
-  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-hover); text-decoration: none; }
 
-  .btn-secondary {
-    background: var(--bg-alt);
-    color: var(--text);
-    border-color: var(--border);
-  }
-  .btn-secondary:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    text-decoration: none;
-  }
+  .btn-secondary { background: var(--bg-alt); color: var(--text); border-color: var(--border); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
-  .badges {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 24px;
-  }
+  .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
 
   .badge {
     background: var(--bg-alt);
@@ -630,7 +506,6 @@
 
   .badge svg { width: 12px; height: 12px; }
 
-  /* ─── Mobile ─── */
   .menu-toggle {
     display: none;
     background: var(--bg-alt);
@@ -675,21 +550,8 @@
     .page-nav a { min-width: 0; flex: 1; }
   }
 
-  /* ─── Utilities ─── */
-  .icon-inline {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    vertical-align: -3px;
-    color: currentColor;
-    margin-left: 4px;
-  }
-
-  .anchor-offset { scroll-margin-top: 80px; }
-
   .search-hidden { display: none !important; }
 
-  /* ─── Step List ─── */
   .steps {
     list-style: none;
     padding: 0;
@@ -719,6 +581,27 @@
     justify-content: center;
     font-size: 13px;
     font-weight: 700;
+  }
+
+  .method-signature {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 13.5px;
+    direction: ltr;
+    text-align: left;
+    color: var(--text);
+  }
+
+  .param-table {
+    margin: 14px 0;
+  }
+
+  .param-table th {
+    background: var(--accent-soft);
   }
 </style>
 </head>
@@ -781,38 +664,18 @@
     </div>
 
     <div class="sidebar-section">
-      <div class="sidebar-title">مفاهیم</div>
-      <a href="#concepts" data-page="concepts">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        مفاهیم اصلی
+      <div class="sidebar-title">مرجع کلاس‌ها</div>
+      <a href="#app" data-page="app">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        کلاس App
       </a>
-      <a href="#menus" data-page="menus">
+      <a href="#menu" data-page="menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-        منوها
+        کلاس Menu
       </a>
-      <a href="#forms" data-page="forms">
+      <a href="#form" data-page="form">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-        فرم‌ها
-      </a>
-      <a href="#fields" data-page="fields">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"/><path d="M12 4v16"/></svg>
-        فیلدها
-      </a>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-title">ظاهر</div>
-      <a href="#colors" data-page="colors">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
-        رنگ‌ها
-      </a>
-      <a href="#themes" data-page="themes">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-        تم‌ها
-      </a>
-      <a href="#messages" data-page="messages">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        پیام‌ها
+        کلاس Form
       </a>
     </div>
 
@@ -826,13 +689,21 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
         Progress
       </a>
-      <a href="#quickask" data-page="quickask">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        سوال سریع
+      <a href="#terminal" data-page="terminal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        Terminal
       </a>
-      <a href="#navigation" data-page="navigation">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        ناوبری
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">ظاهر</div>
+      <a href="#colors" data-page="colors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+        رنگ‌ها
+      </a>
+      <a href="#themes" data-page="themes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        تم‌ها
       </a>
     </div>
 
@@ -845,10 +716,6 @@
       <a href="#errors" data-page="errors">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         خطاهای رایج
-      </a>
-      <a href="#faq" data-page="faq">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        سوالات متداول
       </a>
     </div>
   </aside>
@@ -876,9 +743,9 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             شروع کنید
           </a>
-          <a href="#examples" class="btn btn-secondary" onclick="navigateTo('examples'); return false;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            مشاهده مثال‌ها
+          <a href="#app" class="btn btn-secondary" onclick="navigateTo('app'); return false;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            مرجع API
           </a>
         </div>
         <div class="badges">
@@ -902,9 +769,7 @@
         ساخت یک رابط خط فرمان زیبا و تعاملی معمولاً نیازمند کتابخانه‌های
         متعدد و پیکربندی پیچیده است. هر کتابخانه وابستگی‌های خاص خودش را
         دارد، نسخه‌ی پایتون را محدود می‌کند و کاربر نهایی باید قبل از
-        اجرا، چندین دستور <code>pip install</code> بزند. این چرخه‌ی
-        خسته‌کننده باعث می‌شود که بسیاری از پروژه‌ها به جای تمرکز روی
-        منطق برنامه، وقت خود را صرف پیکربندی محیط کنند.
+        اجرا، چندین دستور pip install بزند.
       </p>
       <p>
         Picopy این مشکل را از ریشه حل می‌کند. تمام کتابخانه‌های ثالث
@@ -924,7 +789,7 @@
         <div class="card">
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M9 4v16"/></svg>
           <h4>قابل حمل</h4>
-          <p>همه‌چیز داخل یک پوشه. کپی کن و هر جا اجرا کن، روی هر سیستم‌عاملی.</p>
+          <p>همه‌چیز داخل یک پوشه. کپی کن و هر جا اجرا کن.</p>
         </div>
         <div class="card">
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -932,40 +797,11 @@
           <p>کاربر نهایی نیازی به pip، اینترنت یا نصب چیزی ندارد.</p>
         </div>
         <div class="card">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
           <h4>۶ تم آماده</h4>
           <p>dark, light, dracula, nord, gruvbox, mono. یا تم سفارشی خودت را بساز.</p>
         </div>
-        <div class="card">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          <h4>ویجت‌های متنوع</h4>
-          <p>text, password, confirm, select, multiselect, number, path, info</p>
-        </div>
-        <div class="card">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/><polyline points="3 18 9 12 3 6"/></svg>
-          <h4>ناوبری هوشمند</h4>
-          <p>تاریخچه‌ی ناوبری، بازگشت خودکار، مدیریت ESC و Ctrl+C</p>
-        </div>
-        <div class="card">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-          <h4>Spinner و Progress</h4>
-          <p>نمایش چرخنده و نوار پیشرفت برای عملیات طولانی</p>
-        </div>
-        <div class="card">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <h4>پیام‌های آماده</h4>
-          <p>موفقیت، خطا، هشدار، اطلاع — همه با رنگ و آیکون</p>
-        </div>
       </div>
-
-      <h2>برای چه کسانی مناسب است؟</h2>
-      <p>
-        اگر توسعه‌دهنده‌ای هستید که می‌خواهد سریع یک ابزار خط فرمان
-        بسازد، Picopy برای شماست. اگر می‌خواهید برنامه‌ای بسازید که
-        بدون نیاز به نصب وابستگی روی سیستم کاربر اجرا شود، Picopy
-        بهترین انتخاب است. اگر به ظاهر و زیبایی ترمینال اهمیت می‌دهید،
-        تم‌ها و رنگ‌های متنوع Picopy را راضی خواهند کرد.
-      </p>
 
       <div class="page-nav">
         <span></span>
@@ -985,81 +821,35 @@
       <h1>نصب</h1>
       <p class="lead">
         برای استفاده از Picopy، کافیست فایل WHL را دریافت کنید و
-        با یک دستور نصبش کنید. تمام وابستگی‌ها به‌صورت خودکار
-        نصب می‌شوند.
-      </p>
-
-      <h2>دریافت فایل WHL</h2>
-      <p>
-        فایل <code>picopy-1.0.0-py3-none-any.whl</code> را از هر
-        جایی که در اختیارتان قرار گرفته دریافت کنید. این فایل
-        شامل کل کتابخانه و اطلاعات نصب است. می‌توانید آن را از
-        طریق ایمیل، پیام‌رسان، حافظه‌ی جانبی یا هر روش دیگری
-        به دست آورید.
+        با یک دستور نصبش کنید.
       </p>
 
       <h2>نصب با یک دستور</h2>
-      <p>
-        فایل را در یک پوشه قرار دهید، ترمینال را در همان پوشه باز
-        کنید و دستور زیر را اجرا کنید:
-      </p>
       <pre><code>pip install picopy-1.0.0-py3-none-any.whl</code></pre>
       <p>
         pip به‌صورت خودکار وابستگی‌های Picopy (مثل questionary)
-        را از PyPI دانلود و نصب می‌کند. اگر اینترنت ندارید،
-        می‌توانید وابستگی‌ها را جداگانه نصب کنید.
+        را از PyPI دانلود و نصب می‌کند.
       </p>
 
       <h2>تأیید نصب</h2>
-      <p>
-        برای اطمینان از نصب موفق، این دستور را در ترمینال بزنید:
-      </p>
       <pre><code>python -c "from picopy import App; print('OK')"</code></pre>
-      <p>
-        اگر <code>OK</code> دیدید، نصب موفق بوده است.
-      </p>
+      <p>اگر OK دیدید، نصب موفق بوده است.</p>
 
       <h2>استفاده در کد</h2>
-      <p>
-        بعد از نصب، در هر فایل پایتون می‌توانید بنویسید:
-      </p>
       <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> App</code></pre>
 
-      <h2>حذف نصب</h2>
+      <h2>اجرای برنامه با یک دستور</h2>
       <p>
-        اگر می‌خواهید Picopy را حذف کنید:
+        برای اینکه کاربر بتواند از هر پوشه‌ای دستور <code>picopy</code>
+        را تایپ کند، توی <code>pyproject.toml</code> این رو اضافه کنید:
       </p>
-      <pre><code>pip uninstall picopy</code></pre>
-
-      <h2>ارتقا</h2>
+      <pre><code>[project.scripts]
+picopy = "picopy:run"</code></pre>
       <p>
-        برای نصب نسخه‌ی جدید، کافیست فایل WHL جدید را دریافت
-        کنید و همان دستور نصب را با اسم فایل جدید اجرا کنید:
+        و توی <code>picopy.py</code> یه تابع <code>run()</code> بسازید
+        که برنامه‌ی اصلی رو اجرا کنه. بعد از نصب، از هر پوشه‌ای
+        <code>picopy</code> کار می‌کند.
       </p>
-      <pre><code>pip install picopy-1.0.1-py3-none-any.whl</code></pre>
-      <p>
-        pip نسخه‌ی قدیمی را خودکار جایگزین می‌کند.
-      </p>
-
-      <div class="callout callout-note">
-        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        <div>
-          <div class="callout-title">نکته</div>
-          اگر دستور <code>pip</code> کار نکرد، از
-          <code>python -m pip</code> استفاده کنید:
-          <br><br>
-          <code>python -m pip install picopy-1.0.0-py3-none-any.whl</code>
-        </div>
-      </div>
-
-      <div class="callout callout-success">
-        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        <div>
-          <div class="callout-title">تمام</div>
-          حالا Picopy نصب شده و آماده‌ی استفاده است. برای شروع،
-          به صفحه‌ی «شروع سریع» بروید.
-        </div>
-      </div>
 
       <div class="page-nav">
         <a href="#intro" onclick="navigateTo('intro'); return false;">
@@ -1081,15 +871,10 @@
       </div>
       <h1>شروع سریع</h1>
       <p class="lead">
-        بیایید با یک مثال ساده شروع کنیم. در کمتر از دو دقیقه، اولین
-        برنامه‌ی CLI خود را می‌سازید.
+        بیایید با یک مثال ساده شروع کنیم.
       </p>
 
       <h2>قدم ۱: یک فایل بسازید</h2>
-      <p>
-        یک فایل پایتون به نام <code>main.py</code> بسازید و کد زیر را
-        در آن بنویسید:
-      </p>
       <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> App
 
 app = App(<span class="str">"MyTool"</span>)
@@ -1109,407 +894,627 @@ app = App(<span class="str">"MyTool"</span>)
       <h2>قدم ۲: اجرا کنید</h2>
       <pre><code>python main.py</code></pre>
 
-      <p>
-        یک منو نمایش داده می‌شود با دو گزینه:
-      </p>
-      <ul>
-        <li><strong>Say Hi</strong> — پیام <code>Hello!</code> را چاپ می‌کند</li>
-        <li><strong>Exit</strong> — از برنامه خارج می‌شود</li>
-      </ul>
-      <p>
-        با کلیدهای جهت‌دار (بالا/پایین) حرکت کنید و با Enter انتخاب کنید.
-        با ESC هم می‌توانید خارج شوید.
-      </p>
-
-      <h2>قدم ۳: شخصی‌سازی</h2>
-      <p>
-        حالا بیایید کمی شخصی‌سازی کنیم. رنگ، آیکون و عنوان را عوض کنید:
-      </p>
-      <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> App
-
-app = App(<span class="str">"MyTool"</span>, version=<span class="str">"1.0.0"</span>, theme=<span class="str">"dracula"</span>)
-
-<span class="dec">@app.menu</span>(<span class="str">"Main"</span>, title=<span class="str">"منوی اصلی"</span>, icon=<span class="str">"H"</span>, color=<span class="str">"cyan"</span>)
-<span class="kw">def</span> <span class="fn">main</span>(m):
-    m.go(<span class="str">"Settings"</span>, <span class="str">"settings"</span>, icon=<span class="str">"S"</span>, color=<span class="str">"yellow"</span>)
-    m.go(<span class="str">"About"</span>, <span class="str">"about"</span>, icon=<span class="str">"i"</span>, color=<span class="str">"green"</span>)
-    m.line()
-    m.quit(<span class="str">"Exit"</span>)
-
-<span class="dec">@app.form</span>(<span class="str">"Settings"</span>, icon=<span class="str">"S"</span>, color=<span class="str">"yellow"</span>)
-<span class="kw">def</span> <span class="fn">settings</span>(p):
-    p.text(<span class="str">"Username"</span>, default=<span class="str">"admin"</span>)
-    p.yes_no(<span class="str">"Dark mode?"</span>, default=<span class="kw">True</span>)
-
-    <span class="dec">@p.save</span>
-    <span class="kw">def</span> <span class="fn">save</span>(v):
-        app.ok(<span class="str">f"Saved: {v['username']}"</span>)
-        app.pause()
-
-<span class="dec">@app.form</span>(<span class="str">"About"</span>, icon=<span class="str">"i"</span>, color=<span class="str">"green"</span>)
-<span class="kw">def</span> <span class="fn">about</span>(p):
-    p.info(<span class="str">"MyTool v1.0.0"</span>)
-    p.info(<span class="str">"A tiny CLI framework."</span>)
-
-<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
-    app.run()</code></pre>
-
-      <p>
-        حالا برنامه‌ای دارید با منوی اصلی، صفحه‌ی تنظیمات و صفحه‌ی
-        درباره. کاربر با انتخاب هر گزینه به صفحه‌ی مربوطه می‌رود و
-        با Back یا ESC برمی‌گردد.
-      </p>
-
-      <h2>چرخه‌ی کار</h2>
-      <p>
-        Picopy بر اساس یک چرخه‌ی ساده کار می‌کند. در هر لحظه، یکی از
-        دو حالت فعال است: منو یا فرم. با هر انتخاب، حالت عوض می‌شود.
-        این چرخه تا زمانی که کاربر خارج شود ادامه دارد.
-      </p>
-      <ol class="steps">
-        <li>برنامه اجرا می‌شود، منوی اول نمایش داده می‌شود</li>
-        <li>کاربر یک گزینه را انتخاب می‌کند</li>
-        <li>اگر گزینه <code>go</code> باشد، به صفحه‌ی مقصد می‌رود</li>
-        <li>اگر گزینه <code>do</code> باشد، یک تابع اجرا می‌شود</li>
-        <li>در فرم، فیلدها یکی‌یکی پرسیده می‌شوند</li>
-        <li>در انتها کاربر ذخیره یا لغو می‌کند</li>
-        <li>به منوی قبلی برمی‌گردد و چرخه ادامه می‌یابد</li>
-      </ol>
-
-      <div class="callout callout-success">
-        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        <div>
-          <div class="callout-title">تبریک</div>
-          شما اولین برنامه‌ی Picopy خود را ساختید. حالا می‌توانید
-          مفاهیم پیشرفته‌تر را یاد بگیرید.
-        </div>
-      </div>
-
       <div class="page-nav">
         <a href="#install" onclick="navigateTo('install'); return false;">
           <span class="nav-label">صفحه قبل</span>
           <span class="nav-title">نصب →</span>
         </a>
-        <a href="#concepts" class="nav-next" onclick="navigateTo('concepts'); return false;">
+        <a href="#app" class="nav-next" onclick="navigateTo('app'); return false;">
           <span class="nav-label">صفحه بعد</span>
-          <span class="nav-title">مفاهیم اصلی ←</span>
+          <span class="nav-title">کلاس App ←</span>
         </a>
       </div>
     </div>
 
-    <!-- ═══════ PAGE: CONCEPTS ═══════ -->
-    <div class="page" id="page-concepts">
+    <!-- ═══════ PAGE: APP ═══════ -->
+    <div class="page" id="page-app">
       <div class="page-meta">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        مفاهیم / مفاهیم اصلی
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        مرجع کلاس‌ها / App
       </div>
-      <h1>مفاهیم اصلی</h1>
+      <h1>کلاس App</h1>
       <p class="lead">
-        Picopy بر پایه‌ی سه مفهوم اساسی ساخته شده است. درک این سه
-        مفهوم، کلید استفاده از کتابخانه است.
+        کلاس App مدیر کل برنامه است. تنظیمات، ثبت منوها و فرم‌ها،
+        مدیریت ناوبری، چاپ پیام‌ها، و نمایش Spinner و Progress
+        همه از این کلاس می‌آیند.
       </p>
 
-      <h2>App — مدیر کل برنامه</h2>
-      <p>
-        <code>App</code> قلب برنامه‌ی شماست. این کلاس مسئولیت‌های
-        زیر را بر عهده دارد:
-      </p>
-      <ul>
-        <li>نگهداری تنظیمات (عنوان، نسخه، تم، عرض)</li>
-        <li>ثبت منوها و فرم‌ها با دکوراتور</li>
-        <li>مدیریت ناوبری بین صفحات</li>
-        <li>نگهداری تاریخچه</li>
-        <li>چاپ پیام‌ها (موفقیت، خطا، هشدار، اطلاع)</li>
-        <li>نمایش Spinner و Progress</li>
-      </ul>
-      <p>برای ساخت یک App:</p>
-      <pre><code>app = App(<span class="str">"MyTool"</span>, version=<span class="str">"1.0.0"</span>, theme=<span class="str">"dark"</span>)</code></pre>
+      <h2>سازنده</h2>
+      <div class="method-signature">App(title="App", version="", theme="dark", width=60, color_enabled=None)</div>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>title</code></td>
+            <td>رشته</td>
+            <td>"App"</td>
+            <td>عنوان برنامه که بالای هر صفحه نمایش داده می‌شود.</td>
+          </tr>
+          <tr>
+            <td><code>version</code></td>
+            <td>رشته</td>
+            <td>""</td>
+            <td>نسخه‌ی برنامه که زیر عنوان نمایش داده می‌شود.</td>
+          </tr>
+          <tr>
+            <td><code>theme</code></td>
+            <td>رشته یا دیکشنری</td>
+            <td>"dark"</td>
+            <td>تم رنگی برنامه. می‌تواند اسم تم آماده باشد یا دیکشنری سفارشی.</td>
+          </tr>
+          <tr>
+            <td><code>width</code></td>
+            <td>عدد صحیح</td>
+            <td>60</td>
+            <td>عرض خط جداکننده‌ی بالای صفحه.</td>
+          </tr>
+          <tr>
+            <td><code>color_enabled</code></td>
+            <td>بولی یا None</td>
+            <td>None</td>
+            <td>فعال یا غیرفعال کردن رنگ‌ها. اگر None باشد، خودکار تشخیص داده می‌شود.</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre><code>app = App(<span class="str">"MyTool"</span>, version=<span class="str">"1.0.0"</span>, theme=<span class="str">"dracula"</span>, width=<span class="num">70</span>)</code></pre>
 
-      <h2>Menu — منو با دکمه‌ها</h2>
-      <p>
-        <code>Menu</code> یک صفحه‌ی تعاملی است که چند دکمه نمایش
-        می‌دهد. کاربر با کلیدهای جهت‌دار در آن حرکت می‌کند و با Enter
-        انتخاب می‌کند. هر دکمه یا به یک صفحه‌ی دیگر می‌رود (<code>go</code>)
-        یا یک تابع را اجرا می‌کند (<code>do</code>).
-      </p>
+      <h2>متد menu</h2>
+      <div class="method-signature">@app.menu(name, title=None, icon="", color=None)</div>
+      <p>یک منو ثبت می‌کند.</p>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>name</code></td><td>رشته</td><td>اجباری</td><td>شناسه‌ی منو.</td></tr>
+          <tr><td><code>title</code></td><td>رشته</td><td>None</td><td>عنوان نمایشی. اگر None باشد، از name استفاده می‌شود.</td></tr>
+          <tr><td><code>icon</code></td><td>رشته</td><td>""</td><td>آیکون متنی.</td></tr>
+          <tr><td><code>color</code></td><td>رشته</td><td>None</td><td>رنگ منو.</td></tr>
+        </tbody>
+      </table>
+      <pre><code><span class="dec">@app.menu</span>(<span class="str">"Main"</span>, title=<span class="str">"منوی اصلی"</span>, icon=<span class="str">"H"</span>, color=<span class="str">"cyan"</span>)
+<span class="kw">def</span> <span class="fn">main</span>(m):
+    m.quit()</code></pre>
 
-      <h2>Form — صفحه‌ی ورودی</h2>
-      <p>
-        <code>Form</code> یک صفحه‌ی فرم‌محور است. چند فیلد دارد که
-        به ترتیب از کاربر پرسیده می‌شوند. در انتها کاربر می‌تواند
-        ذخیره یا لغو کند.
-      </p>
+      <h2>متد form</h2>
+      <div class="method-signature">@app.form(name, title=None, icon="", color=None)</div>
+      <p>یک فرم ثبت می‌کند.</p>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>name</code></td><td>رشته</td><td>اجباری</td><td>شناسه‌ی فرم.</td></tr>
+          <tr><td><code>title</code></td><td>رشته</td><td>None</td><td>عنوان فرم.</td></tr>
+          <tr><td><code>icon</code></td><td>رشته</td><td>""</td><td>آیکون فرم.</td></tr>
+          <tr><td><code>color</code></td><td>رشته</td><td>None</td><td>رنگ فرم.</td></tr>
+        </tbody>
+      </table>
+      <pre><code><span class="dec">@app.form</span>(<span class="str">"Settings"</span>, title=<span class="str">"تنظیمات"</span>, icon=<span class="str">"S"</span>, color=<span class="str">"yellow"</span>)
+<span class="kw">def</span> <span class="fn">settings</span>(p):
+    p.text(<span class="str">"Username"</span>)</code></pre>
 
-      <h2>نحوه‌ی تعامل</h2>
-      <div class="grid">
-        <div class="card">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <h4>App</h4>
-          <p>مدیر کل. تنظیمات، ناوبری، چاپ، و Spinner.</p>
-        </div>
-        <div class="card">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-          <h4>Menu</h4>
-          <p>منو با دکمه‌ها. کاربر انتخاب می‌کند.</p>
-        </div>
-        <div class="card">
-          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-          <h4>Form</h4>
-          <p>فرم با فیلدها. کاربر پر می‌کند.</p>
-        </div>
-      </div>
+      <h2>متد run</h2>
+      <div class="method-signature">app.run()</div>
+      <p>برنامه را اجرا می‌کند و در حلقه می‌ماند تا کاربر خارج شود.</p>
 
-      <h2>چرخه‌ی اجرا</h2>
-      <ol class="steps">
-        <li>صفحه‌ی فعلی پاک می‌شود (با دستور <code>cls</code>)</li>
-        <li>بر اساس متغیر کنترلی، منو یا فرم رسم می‌شود</li>
-        <li>ورودی کاربر گرفته می‌شود</li>
-        <li>بر اساس انتخاب، صفحه‌ی بعدی مشخص می‌شود</li>
-        <li>به ابتدای حلقه برمی‌گردد</li>
-      </ol>
+      <h2>متد goto</h2>
+      <div class="method-signature">app.goto(page_name)</div>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>page_name</code></td><td>رشته</td><td>شناسه‌ی صفحه‌ی مقصد.</td></tr>
+        </tbody>
+      </table>
+      <pre><code>app.goto(<span class="str">"settings"</span>)</code></pre>
+
+      <h2>متد go_back</h2>
+      <div class="method-signature">app.go_back()</div>
+      <p>به صفحه‌ی قبلی برمی‌گردد (از تاریخچه).</p>
+
+      <h2>متد print</h2>
+      <div class="method-signature">app.print(text="", color=None, bold=False)</div>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>text</code></td><td>رشته</td><td>""</td><td>متن مورد نظر.</td></tr>
+          <tr><td><code>color</code></td><td>رشته</td><td>None</td><td>رنگ متن.</td></tr>
+          <tr><td><code>bold</code></td><td>بولی</td><td>False</td><td>پررنگ بودن.</td></tr>
+        </tbody>
+      </table>
+      <pre><code>app.print(<span class="str">"Hello"</span>)
+app.print(<span class="str">"Error"</span>, color=<span class="str">"red"</span>)
+app.print(<span class="str">"Important"</span>, bold=<span class="kw">True</span>)</code></pre>
+
+      <h2>متد ok</h2>
+      <div class="method-signature">app.ok(message)</div>
+      <p>پیام موفقیت با آیکون ✓ و رنگ سبز.</p>
+      <pre><code>app.ok(<span class="str">"Saved!"</span>)</code></pre>
+
+      <h2>متد error</h2>
+      <div class="method-signature">app.error(message)</div>
+      <p>پیام خطا با آیکون ✗ و رنگ قرمز.</p>
+      <pre><code>app.error(<span class="str">"Failed!"</span>)</code></pre>
+
+      <h2>متد warn</h2>
+      <div class="method-signature">app.warn(message)</div>
+      <p>پیام هشدار با آیکون ⚠ و رنگ زرد.</p>
+      <pre><code>app.warn(<span class="str">"Careful"</span>)</code></pre>
+
+      <h2>متد info</h2>
+      <div class="method-signature">app.info(message)</div>
+      <p>پیام اطلاع با آیکون ℹ و رنگ آبی.</p>
+      <pre><code>app.info(<span class="str">"Loading..."</span>)</code></pre>
+
+      <h2>متد pause</h2>
+      <div class="method-signature">app.pause(message="Press Enter to continue...")</div>
+      <p>منتظر Enter می‌ماند.</p>
+      <pre><code>app.pause()
+app.pause(<span class="str">"Press any key..."</span>)</code></pre>
+
+      <h2>متد spinner</h2>
+      <div class="method-signature">app.spinner(text="Loading...", color=None)</div>
+      <p>یک Spinner برمی‌گرداند. با <code>with</code> استفاده کنید.</p>
+      <pre><code><span class="kw">with</span> app.spinner(<span class="str">"Loading..."</span>):
+    do_something()</code></pre>
+
+      <h2>متد progress</h2>
+      <div class="method-signature">app.progress(total=100, prefix="")</div>
+      <p>یک Progress Bar برمی‌گرداند.</p>
+      <pre><code><span class="kw">with</span> app.progress(<span class="num">100</span>, prefix=<span class="str">"Processing: "</span>) <span class="kw">as</span> bar:
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="num">100</span>):
+        bar.update()</code></pre>
+
+      <h2>متد ask</h2>
+      <div class="method-signature">app.ask(question, default="")</div>
+      <p>یک سوال متنی می‌پرسد و پاسخ را برمی‌گرداند.</p>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>question</code></td><td>رشته</td><td>اجباری</td><td>متن سوال.</td></tr>
+          <tr><td><code>default</code></td><td>رشته</td><td>""</td><td>مقدار پیش‌فرض.</td></tr>
+        </tbody>
+      </table>
+      <p><strong>خروجی:</strong> رشته یا None اگر کاربر ESC بزند.</p>
+      <pre><code>name = app.ask(<span class="str">"What's your name?"</span>)</code></pre>
+
+      <h2>متد confirm</h2>
+      <div class="method-signature">app.confirm(question, default=False)</div>
+      <p>یک سوال بله/خیر می‌پرسد.</p>
+      <p><strong>خروجی:</strong> True یا False.</p>
+      <pre><code><span class="kw">if</span> app.confirm(<span class="str">"Are you sure?"</span>):
+    do_it()</code></pre>
+
+      <h2>متد pick</h2>
+      <div class="method-signature">app.pick(question, choices)</div>
+      <p>انتخاب سریع از بین گزینه‌ها.</p>
+      <p><strong>خروجی:</strong> رشته یا None.</p>
+      <pre><code>color = app.pick(<span class="str">"Choose:"</span>, [<span class="str">"red"</span>, <span class="str">"green"</span>, <span class="str">"blue"</span>])</code></pre>
+
+      <h2>متد set_theme</h2>
+      <div class="method-signature">app.set_theme(theme)</div>
+      <p>تم برنامه را در حین اجرا تغییر می‌دهد.</p>
+      <pre><code>app.set_theme(<span class="str">"nord"</span>)</code></pre>
+
+      <h2>متغیرهای App</h2>
+      <table class="param-table">
+        <thead>
+          <tr><th>متغیر</th><th>نوع</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>app.title</code></td><td>رشته</td><td>عنوان برنامه.</td></tr>
+          <tr><td><code>app.version</code></td><td>رشته</td><td>نسخه‌ی برنامه.</td></tr>
+          <tr><td><code>app.theme</code></td><td>دیکشنری</td><td>تم فعلی.</td></tr>
+          <tr><td><code>app.width</code></td><td>عدد صحیح</td><td>عرض خط جداکننده.</td></tr>
+          <tr><td><code>app.color_enabled</code></td><td>بولی</td><td>فعال بودن رنگ‌ها.</td></tr>
+          <tr><td><code>app.running</code></td><td>بولی</td><td>آیا برنامه در حال اجراست.</td></tr>
+          <tr><td><code>app.history</code></td><td>لیست</td><td>تاریخچه‌ی ناوبری.</td></tr>
+        </tbody>
+      </table>
 
       <div class="page-nav">
         <a href="#quickstart" onclick="navigateTo('quickstart'); return false;">
           <span class="nav-label">صفحه قبل</span>
           <span class="nav-title">شروع سریع →</span>
         </a>
-        <a href="#menus" class="nav-next" onclick="navigateTo('menus'); return false;">
+        <a href="#menu" class="nav-next" onclick="navigateTo('menu'); return false;">
           <span class="nav-label">صفحه بعد</span>
-          <span class="nav-title">منوها ←</span>
+          <span class="nav-title">کلاس Menu ←</span>
         </a>
       </div>
     </div>
 
-    <!-- ═══════ PAGE: MENUS ═══════ -->
-    <div class="page" id="page-menus">
+    <!-- ═══════ PAGE: MENU ═══════ -->
+    <div class="page" id="page-menu">
       <div class="page-meta">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-        مفاهیم / منوها
+        مرجع کلاس‌ها / Menu
       </div>
-      <h1>منوها</h1>
+      <h1>کلاس Menu</h1>
       <p class="lead">
-        منو یکی از پرکاربردترین اجزای Picopy است. با منو می‌توانید
-        گزینه‌های مختلف را به کاربر نمایش دهید.
+        کلاس Menu یک صفحه‌ی تعاملی است که چند دکمه نمایش می‌دهد.
       </p>
 
-      <h2>ساختار پایه</h2>
-      <pre><code><span class="dec">@app.menu</span>(name, title=<span class="kw">None</span>, icon=<span class="str">""</span>, color=<span class="kw">None</span>)
-<span class="kw">def</span> <span class="fn">menu_name</span>(m):
-    <span class="cm"># دکمه‌ها اینجا</span>
-    <span class="kw">pass</span></code></pre>
-
-      <h2>متدهای منو</h2>
-      <table>
+      <h2>متد go</h2>
+      <div class="method-signature">m.go(label, target, icon="", color=None)</div>
+      <p>یک دکمه می‌سازد که به صفحه یا منوی دیگر می‌رود.</p>
+      <table class="param-table">
         <thead>
-          <tr>
-            <th>متد</th>
-            <th>توضیح</th>
-            <th>مثال</th>
-          </tr>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td><code>m.go()</code></td>
-            <td>رفتن به صفحه یا منوی دیگر</td>
-            <td><code>m.go("Settings", "settings")</code></td>
-          </tr>
-          <tr>
-            <td><code>m.do()</code></td>
-            <td>اجرای یک تابع</td>
-            <td><code>m.do("Run", my_fn)</code></td>
-          </tr>
-          <tr>
-            <td><code>m.line()</code></td>
-            <td>خط جداکننده</td>
-            <td><code>m.line()</code></td>
-          </tr>
-          <tr>
-            <td><code>m.back()</code></td>
-            <td>دکمه‌ی برگشت</td>
-            <td><code>m.back()</code></td>
-          </tr>
-          <tr>
-            <td><code>m.quit()</code></td>
-            <td>دکمه‌ی خروج</td>
-            <td><code>m.quit("Exit")</code></td>
-          </tr>
+          <tr><td><code>label</code></td><td>رشته</td><td>اجباری</td><td>متن دکمه.</td></tr>
+          <tr><td><code>target</code></td><td>رشته یا تابع</td><td>اجباری</td><td>شناسه‌ی صفحه یا تابع.</td></tr>
+          <tr><td><code>icon</code></td><td>رشته</td><td>""</td><td>آیکون دکمه.</td></tr>
+          <tr><td><code>color</code></td><td>رشته</td><td>None</td><td>رنگ دکمه.</td></tr>
         </tbody>
       </table>
+      <pre><code>m.go(<span class="str">"Settings"</span>, <span class="str">"settings"</span>)
+m.go(<span class="str">"Say Hi"</span>, say_hi)
+m.go(<span class="str">"Profile"</span>, <span class="str">"profile"</span>, icon=<span class="str">"P"</span>, color=<span class="str">"green"</span>)</code></pre>
 
-      <h2>مثال کامل منو</h2>
-      <pre><code><span class="dec">@app.menu</span>(<span class="str">"Main"</span>, title=<span class="str">"منوی اصلی"</span>, icon=<span class="str">"H"</span>, color=<span class="str">"cyan"</span>)
-<span class="kw">def</span> <span class="fn">main</span>(m):
-    m.go(<span class="str">"Settings"</span>, <span class="str">"settings"</span>, icon=<span class="str">"S"</span>, color=<span class="str">"yellow"</span>)
-    m.go(<span class="str">"Profile"</span>, <span class="str">"profile"</span>, icon=<span class="str">"P"</span>, color=<span class="str">"green"</span>)
-    m.line()
-    m.quit(<span class="str">"Exit"</span>)</code></pre>
+      <h2>متد do</h2>
+      <div class="method-signature">m.do(label, function, icon="", color=None)</div>
+      <p>یک دکمه می‌سازد که یک تابع را اجرا می‌کند.</p>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>label</code></td><td>رشته</td><td>اجباری</td><td>متن دکمه.</td></tr>
+          <tr><td><code>function</code></td><td>تابع</td><td>اجباری</td><td>تابعی که اجرا می‌شود.</td></tr>
+          <tr><td><code>icon</code></td><td>رشته</td><td>""</td><td>آیکون دکمه.</td></tr>
+          <tr><td><code>color</code></td><td>رشته</td><td>None</td><td>رنگ دکمه.</td></tr>
+        </tbody>
+      </table>
+      <pre><code>m.do(<span class="str">"Say Hi"</span>, say_hi)
+m.do(<span class="str">"Exit"</span>, <span class="kw">lambda</span>: setattr(app, <span class="str">"running"</span>, <span class="kw">False</span>))</code></pre>
 
-      <h2>منوهای تودرتو</h2>
-      <pre><code><span class="dec">@app.menu</span>(<span class="str">"Main"</span>)
-<span class="kw">def</span> <span class="fn">main</span>(m):
-    m.go(<span class="str">"Tools"</span>, <span class="str">"tools"</span>)
-    m.quit()
+      <h2>متد line</h2>
+      <div class="method-signature">m.line()</div>
+      <p>یک خط جداکننده بین دکمه‌ها می‌سازد.</p>
+      <pre><code>m.go(<span class="str">"Settings"</span>, <span class="str">"settings"</span>)
+m.line()
+m.quit()</code></pre>
 
-<span class="dec">@app.menu</span>(<span class="str">"Tools"</span>, icon=<span class="str">"T"</span>)
-<span class="kw">def</span> <span class="fn">tools</span>(m):
-    m.do(<span class="str">"Format"</span>, format_file)
-    m.do(<span class="str">"Validate"</span>, validate_file)
-    m.line()
-    m.back()</code></pre>
+      <h2>متد back</h2>
+      <div class="method-signature">m.back(label=None)</div>
+      <p>یک دکمه‌ی برگشت می‌سازد.</p>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>label</code></td><td>رشته</td><td>None</td><td>متن دکمه. پیش‌فرض: "← Back".</td></tr>
+        </tbody>
+      </table>
+      <pre><code>m.back()
+m.back(<span class="str">"Return"</span>)</code></pre>
 
-      <div class="callout callout-note">
-        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        <div>
-          <div class="callout-title">نکته</div>
-          شناسه‌ی منو و رشته‌ی دکمه باید دقیقاً یکسان باشند.
-        </div>
-      </div>
+      <h2>متد quit</h2>
+      <div class="method-signature">m.quit(label="X Exit", message="Goodbye!")</div>
+      <p>یک دکمه‌ی خروج می‌سازد.</p>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>label</code></td><td>رشته</td><td>"X Exit"</td><td>متن دکمه.</td></tr>
+          <tr><td><code>message</code></td><td>رشته</td><td>"Goodbye!"</td><td>پیامی که بعد از خروج چاپ می‌شود.</td></tr>
+        </tbody>
+      </table>
+      <pre><code>m.quit()
+m.quit(<span class="str">"Exit"</span>, message=<span class="str">"Bye! See you later."</span>)</code></pre>
+
+      <h2>متد with_color</h2>
+      <div class="method-signature">m.with_color(color)</div>
+      <p>رنگ کل منو را تغییر می‌دهد.</p>
+      <pre><code>m.with_color(<span class="str">"cyan"</span>)</code></pre>
+
+      <h2>متد title_of</h2>
+      <div class="method-signature">m.title_of(title)</div>
+      <p>عنوان منو را تغییر می‌دهد.</p>
+      <pre><code>m.title_of(<span class="str">"منوی اصلی"</span>)</code></pre>
 
       <div class="page-nav">
-        <a href="#concepts" onclick="navigateTo('concepts'); return false;">
+        <a href="#app" onclick="navigateTo('app'); return false;">
           <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">مفاهیم اصلی →</span>
+          <span class="nav-title">کلاس App →</span>
         </a>
-        <a href="#forms" class="nav-next" onclick="navigateTo('forms'); return false;">
+        <a href="#form" class="nav-next" onclick="navigateTo('form'); return false;">
           <span class="nav-label">صفحه بعد</span>
-          <span class="nav-title">فرم‌ها ←</span>
+          <span class="nav-title">کلاس Form ←</span>
         </a>
       </div>
     </div>
 
-    <!-- ═══════ PAGE: FORMS ═══════ -->
-    <div class="page" id="page-forms">
+    <!-- ═══════ PAGE: FORM ═══════ -->
+    <div class="page" id="page-form">
       <div class="page-meta">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-        مفاهیم / فرم‌ها
+        مرجع کلاس‌ها / Form
       </div>
-      <h1>فرم‌ها</h1>
+      <h1>کلاس Form</h1>
       <p class="lead">
-        فرم‌ها برای گرفتن ورودی از کاربر استفاده می‌شوند. هر فرم
-        مجموعه‌ای از فیلدهاست که به ترتیب پرسیده می‌شوند.
+        کلاس Form یک صفحه‌ی فرم‌محور است که چند فیلد دارد.
       </p>
 
-      <h2>ساختار پایه</h2>
-      <pre><code><span class="dec">@app.form</span>(name, title=<span class="kw">None</span>, icon=<span class="str">""</span>, color=<span class="kw">None</span>)
-<span class="kw">def</span> <span class="fn">form_name</span>(p):
-    <span class="cm"># فیلدها اینجا</span>
-    <span class="kw">pass</span></code></pre>
+      <h2>متد text</h2>
+      <div class="method-signature">p.text(label, key=None, default="", placeholder="", color=None, icon="")</div>
+      <p>یک ورودی متن می‌سازد. خروجی: رشته.</p>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>label</code></td><td>رشته</td><td>اجباری</td><td>متن برچسب.</td></tr>
+          <tr><td><code>key</code></td><td>رشته</td><td>None</td><td>کلید دیکشنری. اگر None باشد از label ساخته می‌شود.</td></tr>
+          <tr><td><code>default</code></td><td>رشته</td><td>""</td><td>مقدار پیش‌فرض.</td></tr>
+          <tr><td><code>placeholder</code></td><td>رشته</td><td>""</td><td>متن راهنما.</td></tr>
+          <tr><td><code>color</code></td><td>رشته</td><td>None</td><td>رنگ فیلد.</td></tr>
+          <tr><td><code>icon</code></td><td>رشته</td><td>""</td><td>آیکون فیلد.</td></tr>
+        </tbody>
+      </table>
+      <pre><code>p.text(<span class="str">"Username"</span>)
+p.text(<span class="str">"Username"</span>, default=<span class="str">"admin"</span>)
+p.text(<span class="str">"Username"</span>, placeholder=<span class="str">"your name"</span>)</code></pre>
 
-      <h2>رویدادها</h2>
+      <h2>متد password</h2>
+      <div class="method-signature">p.password(label, key=None, color=None, icon="")</div>
+      <p>یک ورودی رمز می‌سازد. خروجی: رشته.</p>
+      <pre><code>p.password(<span class="str">"Password"</span>)
+p.password(<span class="str">"Password"</span>, color=<span class="str">"red"</span>)</code></pre>
+
+      <h2>متد yes_no</h2>
+      <div class="method-signature">p.yes_no(label, key=None, default=False, color=None, icon="")</div>
+      <p>یک سوال بله/خیر می‌سازد. خروجی: True یا False.</p>
+      <pre><code>p.yes_no(<span class="str">"Dark mode?"</span>)
+p.yes_no(<span class="str">"Enable notifications?"</span>, default=<span class="kw">True</span>)</code></pre>
+
+      <h2>متد choose</h2>
+      <div class="method-signature">p.choose(label, choices, key=None, default=None, color=None, icon="")</div>
+      <p>یک انتخاب تک‌گزینه می‌سازد. خروجی: رشته.</p>
+      <pre><code>p.choose(<span class="str">"Theme"</span>, [<span class="str">"dark"</span>, <span class="str">"light"</span>, <span class="str">"dracula"</span>])
+p.choose(<span class="str">"Country"</span>, [<span class="str">"Iran"</span>, <span class="str">"Germany"</span>, <span class="str">"USA"</span>], default=<span class="str">"Iran"</span>)</code></pre>
+
+      <h2>متد many</h2>
+      <div class="method-signature">p.many(label, choices, key=None, color=None, icon="")</div>
+      <p>یک انتخاب چندگزینه می‌سازد. کاربر با Space چند گزینه انتخاب می‌کند. خروجی: لیست رشته.</p>
+      <pre><code>p.many(<span class="str">"Skills"</span>, [<span class="str">"Python"</span>, <span class="str">"Go"</span>, <span class="str">"Rust"</span>])</code></pre>
+
+      <h2>متد number</h2>
+      <div class="method-signature">p.number(label, key=None, default=0, min=None, max=None, color=None, icon="")</div>
+      <p>یک ورودی عدد می‌سازد. خروجی: عدد صحیح.</p>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>default</code></td><td>عدد صحیح</td><td>0</td><td>مقدار پیش‌فرض.</td></tr>
+          <tr><td><code>min</code></td><td>عدد صحیح</td><td>None</td><td>حداقل مقدار.</td></tr>
+          <tr><td><code>max</code></td><td>عدد صحیح</td><td>None</td><td>حداکثر مقدار.</td></tr>
+        </tbody>
+      </table>
+      <pre><code>p.number(<span class="str">"Port"</span>)
+p.number(<span class="str">"Port"</span>, default=<span class="num">8080</span>, min=<span class="num">1</span>, max=<span class="num">65535</span>)</code></pre>
+
+      <h2>متد path</h2>
+      <div class="method-signature">p.path(label, key=None, default="", must_exist=False, color=None, icon="")</div>
+      <p>یک ورودی مسیر فایل می‌سازد. خروجی: رشته.</p>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>default</code></td><td>رشته</td><td>""</td><td>مقدار پیش‌فرض.</td></tr>
+          <tr><td><code>must_exist</code></td><td>بولی</td><td>False</td><td>آیا مسیر باید وجود داشته باشد.</td></tr>
+        </tbody>
+      </table>
+      <pre><code>p.path(<span class="str">"Config file"</span>)
+p.path(<span class="str">"Project"</span>, default=<span class="str">"./myproject"</span>)</code></pre>
+
+      <h2>متد info</h2>
+      <div class="method-signature">p.info(text, color=None)</div>
+      <p>یک متن ثابت در فرم نمایش می‌دهد.</p>
+      <pre><code>p.info(<span class="str">"Please fill the form below"</span>)
+p.info(<span class="str">"[cyan]=== Account ===[/cyan]"</span>)</code></pre>
+
+      <h2>دکوراتور save</h2>
+      <div class="method-signature">@p.save</div>
+      <p>تابعی که بعد از ذخیره‌ی فرم اجرا می‌شود. این تابع یک دیکشنری از مقادیر می‌گیرد.</p>
       <pre><code><span class="dec">@p.save</span>
 <span class="kw">def</span> <span class="fn">save</span>(values):
     app.ok(<span class="str">f"Saved: {values['username']}"</span>)
-    app.pause()
+    app.pause()</code></pre>
 
-<span class="dec">@p.cancel</span>
+      <h2>دکوراتور cancel</h2>
+      <div class="method-signature">@p.cancel</div>
+      <p>تابعی که بعد از لغو کردن فرم اجرا می‌شود.</p>
+      <pre><code><span class="dec">@p.cancel</span>
 <span class="kw">def</span> <span class="fn">cancel</span>():
     app.warn(<span class="str">"Cancelled"</span>)
     app.pause()</code></pre>
 
+      <h2>متد with_color</h2>
+      <div class="method-signature">p.with_color(color)</div>
+      <p>رنگ کل فرم را تغییر می‌دهد.</p>
+      <pre><code>p.with_color(<span class="str">"yellow"</span>)</code></pre>
+
+      <h2>متد title_of</h2>
+      <div class="method-signature">p.title_of(title)</div>
+      <p>عنوان فرم را تغییر می‌دهد.</p>
+      <pre><code>p.title_of(<span class="str">"تنظیمات"</span>)</code></pre>
+
       <h2>دسترسی به مقادیر</h2>
-      <table>
+      <p>کلیدهای دیکشنری values از روی label فیلد ساخته می‌شوند:</p>
+      <table class="param-table">
         <thead>
-          <tr>
-            <th>برچسب فیلد</th>
-            <th>کلید دیکشنری</th>
-          </tr>
+          <tr><th>برچسب فیلد</th><th>کلید دیکشنری</th></tr>
         </thead>
         <tbody>
           <tr><td>Username</td><td><code>username</code></td></tr>
           <tr><td>Full Name</td><td><code>full_name</code></td></tr>
           <tr><td>Dark mode?</td><td><code>dark_mode</code></td></tr>
+          <tr><td>Port #</td><td><code>port</code></td></tr>
         </tbody>
       </table>
-
-      <h2>مثال کامل فرم</h2>
-      <pre><code><span class="dec">@app.form</span>(<span class="str">"Settings"</span>, icon=<span class="str">"S"</span>, color=<span class="str">"yellow"</span>)
-<span class="kw">def</span> <span class="fn">settings</span>(p):
-    p.text(<span class="str">"Username"</span>, default=<span class="str">"admin"</span>)
-    p.password(<span class="str">"Password"</span>)
-    p.yes_no(<span class="str">"Dark mode?"</span>, default=<span class="kw">True</span>)
-    p.choose(<span class="str">"Theme"</span>, [<span class="str">"dark"</span>, <span class="str">"light"</span>, <span class="str">"dracula"</span>])
-    p.number(<span class="str">"Port"</span>, default=<span class="num">8080</span>, min=<span class="num">1</span>, max=<span class="num">65535</span>)
-
-    <span class="dec">@p.save</span>
-    <span class="kw">def</span> <span class="fn">save</span>(v):
-        app.ok(<span class="str">f"Saved: {v['username']}"</span>)
-        app.pause()</code></pre>
+      <p>برای تعیین کلید دستی، از پارامتر <code>key</code> استفاده کنید:</p>
+      <pre><code>p.text(<span class="str">"Username"</span>, key=<span class="str">"user"</span>)</code></pre>
 
       <div class="page-nav">
-        <a href="#menus" onclick="navigateTo('menus'); return false;">
+        <a href="#menu" onclick="navigateTo('menu'); return false;">
           <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">منوها →</span>
+          <span class="nav-title">کلاس Menu →</span>
         </a>
-        <a href="#fields" class="nav-next" onclick="navigateTo('fields'); return false;">
+        <a href="#spinner" class="nav-next" onclick="navigateTo('spinner'); return false;">
           <span class="nav-label">صفحه بعد</span>
-          <span class="nav-title">فیلدها ←</span>
+          <span class="nav-title">Spinner ←</span>
         </a>
       </div>
     </div>
 
-    <!-- ═══════ PAGE: FIELDS ═══════ -->
-    <div class="page" id="page-fields">
+    <!-- ═══════ PAGE: SPINNER ═══════ -->
+    <div class="page" id="page-spinner">
       <div class="page-meta">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4"/><path d="M12 4v16"/></svg>
-        مفاهیم / فیلدها
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        ابزارها / Spinner
       </div>
-      <h1>فیلدها</h1>
+      <h1>Spinner</h1>
       <p class="lead">
-        هر فرم می‌تواند چندین نوع فیلد داشته باشد. هر فیلد یک نوع
-        ورودی خاص را از کاربر می‌گیرد.
+        Spinner یک چرخنده نمایش می‌دهد تا کاربر بداند برنامه در حال کار است.
       </p>
 
-      <h2>متد text — ورودی متن</h2>
-      <pre><code>p.text(<span class="str">"Username"</span>)
-p.text(<span class="str">"Username"</span>, default=<span class="str">"admin"</span>)
-p.text(<span class="str">"Username"</span>, placeholder=<span class="str">"your name"</span>)</code></pre>
-
-      <h2>متد password — ورودی رمز</h2>
-      <pre><code>p.password(<span class="str">"Password"</span>)</code></pre>
-
-      <h2>متد yes_no — سوال بله/خیر</h2>
-      <pre><code>p.yes_no(<span class="str">"Dark mode?"</span>, default=<span class="kw">True</span>)</code></pre>
-
-      <h2>متد choose — انتخاب تک‌گزینه</h2>
-      <pre><code>p.choose(<span class="str">"Theme"</span>, [<span class="str">"dark"</span>, <span class="str">"light"</span>, <span class="str">"dracula"</span>])</code></pre>
-
-      <h2>متد many — انتخاب چندگزینه</h2>
-      <pre><code>p.many(<span class="str">"Skills"</span>, [<span class="str">"Python"</span>, <span class="str">"Go"</span>, <span class="str">"Rust"</span>])</code></pre>
-
-      <h2>متد number — ورودی عدد</h2>
-      <pre><code>p.number(<span class="str">"Port"</span>, default=<span class="num">8080</span>, min=<span class="num">1</span>, max=<span class="num">65535</span>)</code></pre>
-
-      <h2>متد path — ورودی مسیر</h2>
-      <pre><code>p.path(<span class="str">"Config file"</span>, default=<span class="str">"config.json"</span>)</code></pre>
-
-      <h2>متد info — متن ثابت</h2>
-      <pre><code>p.info(<span class="str">"Please fill the form below"</span>)
-p.info(<span class="str">"[cyan]=== Account ===[/cyan]"</span>)</code></pre>
-
-      <h2>جدول کامل</h2>
-      <table>
+      <h2>سازنده</h2>
+      <div class="method-signature">app.spinner(text="Loading...", color=None)</div>
+      <table class="param-table">
         <thead>
-          <tr>
-            <th>متد</th>
-            <th>خروجی</th>
-          </tr>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>p.text()</code></td><td>رشته</td></tr>
-          <tr><td><code>p.password()</code></td><td>رشته</td></tr>
-          <tr><td><code>p.yes_no()</code></td><td>True / False</td></tr>
-          <tr><td><code>p.choose()</code></td><td>رشته</td></tr>
-          <tr><td><code>p.many()</code></td><td>لیست رشته</td></tr>
-          <tr><td><code>p.number()</code></td><td>عدد صحیح</td></tr>
-          <tr><td><code>p.path()</code></td><td>رشته</td></tr>
-          <tr><td><code>p.info()</code></td><td>—</td></tr>
+          <tr><td><code>text</code></td><td>رشته</td><td>"Loading..."</td><td>متن نمایشی.</td></tr>
+          <tr><td><code>color</code></td><td>رشته</td><td>None</td><td>رنگ چرخنده.</td></tr>
         </tbody>
       </table>
 
+      <h2>نحوه استفاده</h2>
+      <pre><code><span class="kw">with</span> app.spinner(<span class="str">"Loading..."</span>):
+    do_something()</code></pre>
+
+      <h2>مثال کامل</h2>
+      <pre><code><span class="kw">def</span> <span class="fn">download</span>():
+    <span class="kw">with</span> app.spinner(<span class="str">"Downloading..."</span>):
+        <span class="kw">import</span> time
+        time.sleep(<span class="num">3</span>)
+    app.ok(<span class="str">"Downloaded!"</span>)
+    app.pause()</code></pre>
+
       <div class="page-nav">
-        <a href="#forms" onclick="navigateTo('forms'); return false;">
+        <a href="#form" onclick="navigateTo('form'); return false;">
           <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">فرم‌ها →</span>
+          <span class="nav-title">کلاس Form →</span>
+        </a>
+        <a href="#progress" class="nav-next" onclick="navigateTo('progress'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">Progress ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: PROGRESS ═══════ -->
+    <div class="page" id="page-progress">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        ابزارها / Progress
+      </div>
+      <h1>Progress Bar</h1>
+      <p class="lead">
+        Progress یک نوار پیشرفت نمایش می‌دهد.
+      </p>
+
+      <h2>سازنده</h2>
+      <div class="method-signature">app.progress(total=100, prefix="")</div>
+      <table class="param-table">
+        <thead>
+          <tr><th>پارامتر</th><th>نوع</th><th>پیش‌فرض</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>total</code></td><td>عدد صحیح</td><td>100</td><td>تعداد کل مراحل.</td></tr>
+          <tr><td><code>prefix</code></td><td>رشته</td><td>""</td><td>متن قبل از نوار.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>متدهای Progress</h2>
+      <table class="param-table">
+        <thead>
+          <tr><th>متد</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>update(n=1)</code></td><td>یک مرحله جلو می‌رود.</td></tr>
+          <tr><td><code>draw()</code></td><td>نوار را رسم می‌کند.</td></tr>
+          <tr><td><code>done()</code></td><td>نوار را کامل می‌کند.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>مثال کامل</h2>
+      <pre><code><span class="kw">with</span> app.progress(<span class="num">100</span>, prefix=<span class="str">"Processing: "</span>) <span class="kw">as</span> bar:
+    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="num">100</span>):
+        do_one_item()
+        bar.update()</code></pre>
+
+      <div class="page-nav">
+        <a href="#spinner" onclick="navigateTo('spinner'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">Spinner →</span>
+        </a>
+        <a href="#terminal" class="nav-next" onclick="navigateTo('terminal'); return false;">
+          <span class="nav-label">صفحه بعد</span>
+          <span class="nav-title">Terminal ←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ═══════ PAGE: TERMINAL ═══════ -->
+    <div class="page" id="page-terminal">
+      <div class="page-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        ابزارها / Terminal
+      </div>
+      <h1>Terminal</h1>
+      <p class="lead">
+        Terminal مسئول پاک کردن صفحه و تشخیص پشتیبانی از رنگ است.
+      </p>
+
+      <h2>متد clear</h2>
+      <div class="method-signature">Terminal.clear()</div>
+      <p>
+        صفحه‌ی ترمینال را پاک می‌کند. روی ویندوز از <code>cls</code>
+        و روی لینوکس/مک از <code>clear</code> استفاده می‌کند.
+      </p>
+      <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> Terminal
+
+Terminal.clear()</code></pre>
+
+      <h2>متد supports_color</h2>
+      <div class="method-signature">Terminal.supports_color()</div>
+      <p>تشخیص می‌دهد که ترمینال از رنگ پشتیبانی می‌کند یا نه.</p>
+      <p><strong>خروجی:</strong> True یا False.</p>
+
+      <h2>غیرفعال کردن رنگ</h2>
+      <p>با تنظیم متغیر محیطی <code>NO_COLOR</code>:</p>
+      <pre><code>NO_COLOR=1 python main.py</code></pre>
+
+      <div class="page-nav">
+        <a href="#progress" onclick="navigateTo('progress'); return false;">
+          <span class="nav-label">صفحه قبل</span>
+          <span class="nav-title">Progress →</span>
         </a>
         <a href="#colors" class="nav-next" onclick="navigateTo('colors'); return false;">
           <span class="nav-label">صفحه بعد</span>
@@ -1530,45 +1535,66 @@ p.info(<span class="str">"[cyan]=== Account ===[/cyan]"</span>)</code></pre>
       </p>
 
       <h2>رنگ‌های پایه</h2>
-      <table>
+      <table class="param-table">
         <thead>
-          <tr><th>نام</th><th>کاربرد</th></tr>
+          <tr><th>نام</th><th>کد ANSI</th><th>کاربرد</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>black</code></td><td>متن روی پس‌زمینه‌ی روشن</td></tr>
-          <tr><td><code>red</code></td><td>خطا</td></tr>
-          <tr><td><code>green</code></td><td>موفقیت</td></tr>
-          <tr><td><code>yellow</code></td><td>هشدار</td></tr>
-          <tr><td><code>blue</code></td><td>اطلاعات</td></tr>
-          <tr><td><code>magenta</code></td><td>تأکید</td></tr>
-          <tr><td><code>cyan</code></td><td>عنوان</td></tr>
-          <tr><td><code>white</code></td><td>متن عادی</td></tr>
+          <tr><td><code>black</code></td><td>30</td><td>متن روی پس‌زمینه‌ی روشن</td></tr>
+          <tr><td><code>red</code></td><td>31</td><td>خطا</td></tr>
+          <tr><td><code>green</code></td><td>32</td><td>موفقیت</td></tr>
+          <tr><td><code>yellow</code></td><td>33</td><td>هشدار</td></tr>
+          <tr><td><code>blue</code></td><td>34</td><td>اطلاعات</td></tr>
+          <tr><td><code>magenta</code></td><td>35</td><td>تأکید</td></tr>
+          <tr><td><code>cyan</code></td><td>36</td><td>عنوان</td></tr>
+          <tr><td><code>white</code></td><td>37</td><td>متن عادی</td></tr>
         </tbody>
       </table>
 
-      <h2>رنگ‌های روشن و اضافی</h2>
+      <h2>رنگ‌های روشن</h2>
       <pre><code>bright_black, bright_red, bright_green, bright_yellow,
-bright_blue, bright_magenta, bright_cyan, bright_white
+bright_blue, bright_magenta, bright_cyan, bright_white</code></pre>
 
-orange, pink, purple, teal, lime, gold, silver,
+      <h2>رنگ‌های اضافی (256-color)</h2>
+      <pre><code>orange, pink, purple, teal, lime, gold, silver,
 navy, maroon, aqua, violet, coral, mint, peach,
-crimson, emerald, amber, lavender</code></pre>
+crimson, emerald, amber, lavender,
+gray, grey</code></pre>
 
       <h2>رنگ‌های HEX</h2>
-      <pre><code>app.print(<span class="str">"Hello"</span>, color=<span class="str">"#ff00aa"</span>)</code></pre>
+      <p>هر رنگ با فرمت <code>#rrggbb</code>.</p>
+      <pre><code>app.print(<span class="str">"Hello"</span>, color=<span class="str">"#ff00aa"</span>)
+m.go(<span class="str">"Custom"</span>, <span class="str">"custom"</span>, color=<span class="str">"#00d7ff"</span>)</code></pre>
 
-      <h2>رنگ per-item</h2>
-      <pre><code>m.go(<span class="str">"Danger"</span>, <span class="str">"danger"</span>, color=<span class="str">"red"</span>)
-m.go(<span class="str">"Safe"</span>, <span class="str">"safe"</span>, color=<span class="str">"green"</span>)</code></pre>
+      <h2>کجا می‌توان رنگ داد؟</h2>
+      <p>پارامتر color در متدهای زیر پذیرفته می‌شود:</p>
+      <ul>
+        <li><code>@app.menu(..., color=...)</code></li>
+        <li><code>@app.form(..., color=...)</code></li>
+        <li><code>m.go(..., color=...)</code></li>
+        <li><code>m.do(..., color=...)</code></li>
+        <li><code>p.text(..., color=...)</code></li>
+        <li><code>p.password(..., color=...)</code></li>
+        <li><code>p.yes_no(..., color=...)</code></li>
+        <li><code>p.choose(..., color=...)</code></li>
+        <li><code>p.many(..., color=...)</code></li>
+        <li><code>p.number(..., color=...)</code></li>
+        <li><code>p.path(..., color=...)</code></li>
+        <li><code>p.info(..., color=...)</code></li>
+        <li><code>app.print(..., color=...)</code></li>
+      </ul>
 
       <h2>Markup رنگی</h2>
+      <p>در متن‌های چاپی، از تگ‌های رنگی استفاده کنید:</p>
       <pre><code>app.print(<span class="str">"[red]Error[/red]"</span>)
-app.print(<span class="str">"[bold cyan]Important[/bold cyan]"</span>)</code></pre>
+app.print(<span class="str">"[bold cyan]Important[/bold cyan]"</span>)
+app.print(<span class="str">"Hello [magenta]world[/magenta]"</span>)
+app.print(<span class="str">"[#ff8800]Custom hex[/#ff8800]"</span>)</code></pre>
 
       <div class="page-nav">
-        <a href="#fields" onclick="navigateTo('fields'); return false;">
+        <a href="#terminal" onclick="navigateTo('terminal'); return false;">
           <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">فیلدها →</span>
+          <span class="nav-title">Terminal →</span>
         </a>
         <a href="#themes" class="nav-next" onclick="navigateTo('themes'); return false;">
           <span class="nav-label">صفحه بعد</span>
@@ -1589,21 +1615,24 @@ app.print(<span class="str">"[bold cyan]Important[/bold cyan]"</span>)</code></p
       </p>
 
       <h2>تم‌های آماده</h2>
-      <table>
+      <table class="param-table">
         <thead>
-          <tr><th>تم</th><th>ویژگی</th></tr>
+          <tr><th>تم</th><th>ویژگی</th><th>مناسب برای</th></tr>
         </thead>
         <tbody>
-          <tr><td><code>dark</code></td><td>پیش‌فرض، آبی روشن</td></tr>
-          <tr><td><code>light</code></td><td>برای ترمینال روشن</td></tr>
-          <tr><td><code>dracula</code></td><td>بنفش</td></tr>
-          <tr><td><code>nord</code></td><td>سرد</td></tr>
-          <tr><td><code>gruvbox</code></td><td>گرم</td></tr>
-          <tr><td><code>mono</code></td><td>بدون رنگ</td></tr>
+          <tr><td><code>dark</code></td><td>پیش‌فرض، آبی روشن</td><td>اکثر ترمینال‌ها</td></tr>
+          <tr><td><code>light</code></td><td>رنگ‌های تیره روی روشن</td><td>ترمینال‌های روشن</td></tr>
+          <tr><td><code>dracula</code></td><td>بنفش و صورتی</td><td>علاقه‌مندان به Dracula</td></tr>
+          <tr><td><code>nord</code></td><td>سرد و آرام</td><td>کارهای طولانی</td></tr>
+          <tr><td><code>gruvbox</code></td><td>گرم و کلاسیک</td><td>فضای گرم</td></tr>
+          <tr><td><code>mono</code></td><td>بدون رنگ</td><td>لاگ‌گیری، تست</td></tr>
         </tbody>
       </table>
 
       <pre><code>app = App(<span class="str">"MyTool"</span>, theme=<span class="str">"dracula"</span>)</code></pre>
+
+      <h2>تغییر تم در حین اجرا</h2>
+      <pre><code>app.set_theme(<span class="str">"nord"</span>)</code></pre>
 
       <h2>تم سفارشی</h2>
       <pre><code>app = App(<span class="str">"MyTool"</span>, theme={
@@ -1618,208 +1647,28 @@ app.print(<span class="str">"[bold cyan]Important[/bold cyan]"</span>)</code></p
     <span class="str">"border"</span>: <span class="str">"gray"</span>,
 })</code></pre>
 
+      <h2>معنی کلیدهای تم</h2>
+      <table class="param-table">
+        <thead>
+          <tr><th>کلید</th><th>استفاده</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>primary</code></td><td>رنگ اصلی دکمه‌ها و انتخاب‌ها</td></tr>
+          <tr><td><code>success</code></td><td>پیام‌های موفقیت</td></tr>
+          <tr><td><code>error</code></td><td>پیام‌های خطا</td></tr>
+          <tr><td><code>warning</code></td><td>پیام‌های هشدار</td></tr>
+          <tr><td><code>info</code></td><td>پیام‌های اطلاع</td></tr>
+          <tr><td><code>muted</code></td><td>متن‌های خفیف</td></tr>
+          <tr><td><code>text</code></td><td>متن عادی</td></tr>
+          <tr><td><code>title</code></td><td>عنوان صفحه</td></tr>
+          <tr><td><code>border</code></td><td>خطوط و حاشیه‌ها</td></tr>
+        </tbody>
+      </table>
+
       <div class="page-nav">
         <a href="#colors" onclick="navigateTo('colors'); return false;">
           <span class="nav-label">صفحه قبل</span>
           <span class="nav-title">رنگ‌ها →</span>
-        </a>
-        <a href="#messages" class="nav-next" onclick="navigateTo('messages'); return false;">
-          <span class="nav-label">صفحه بعد</span>
-          <span class="nav-title">پیام‌ها ←</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ═══════ PAGE: MESSAGES ═══════ -->
-    <div class="page" id="page-messages">
-      <div class="page-meta">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        ظاهر / پیام‌ها
-      </div>
-      <h1>پیام‌ها</h1>
-      <p class="lead">
-        Picopy چند نوع پیام آماده دارد.
-      </p>
-
-      <table>
-        <thead>
-          <tr><th>متد</th><th>خروجی</th><th>رنگ</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>app.ok()</code></td><td>[OK] پیام</td><td>سبز</td></tr>
-          <tr><td><code>app.error()</code></td><td>[X] پیام</td><td>قرمز</td></tr>
-          <tr><td><code>app.warn()</code></td><td>[!] پیام</td><td>زرد</td></tr>
-          <tr><td><code>app.info()</code></td><td>[i] پیام</td><td>آبی</td></tr>
-          <tr><td><code>app.pause()</code></td><td>منتظر Enter</td><td>—</td></tr>
-        </tbody>
-      </table>
-
-      <pre><code>app.ok(<span class="str">"Saved!"</span>)
-app.error(<span class="str">"Failed!"</span>)
-app.warn(<span class="str">"Careful"</span>)
-app.info(<span class="str">"Loading..."</span>)
-app.pause()</code></pre>
-
-      <h2>Markup</h2>
-      <pre><code>app.print(<span class="str">"[red]Error[/red]"</span>)
-app.print(<span class="str">"[bold cyan]Important[/bold cyan]"</span>)</code></pre>
-
-      <div class="page-nav">
-        <a href="#themes" onclick="navigateTo('themes'); return false;">
-          <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">تم‌ها →</span>
-        </a>
-        <a href="#spinner" class="nav-next" onclick="navigateTo('spinner'); return false;">
-          <span class="nav-label">صفحه بعد</span>
-          <span class="nav-title">Spinner ←</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ═══════ PAGE: SPINNER ═══════ -->
-    <div class="page" id="page-spinner">
-      <div class="page-meta">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ابزارها / Spinner
-      </div>
-      <h1>Spinner</h1>
-      <p class="lead">
-        وقتی عملیاتی طول می‌کشد، یک چرخنده نمایش دهید.
-      </p>
-
-      <pre><code><span class="kw">with</span> app.spinner(<span class="str">"Loading..."</span>):
-    do_something()</code></pre>
-
-      <h2>مثال کامل</h2>
-      <pre><code><span class="kw">def</span> <span class="fn">download</span>():
-    <span class="kw">with</span> app.spinner(<span class="str">"Downloading..."</span>):
-        <span class="kw">import</span> time
-        time.sleep(<span class="num">3</span>)
-    app.ok(<span class="str">"Downloaded!"</span>)
-    app.pause()</code></pre>
-
-      <div class="page-nav">
-        <a href="#messages" onclick="navigateTo('messages'); return false;">
-          <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">پیام‌ها →</span>
-        </a>
-        <a href="#progress" class="nav-next" onclick="navigateTo('progress'); return false;">
-          <span class="nav-label">صفحه بعد</span>
-          <span class="nav-title">Progress ←</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ═══════ PAGE: PROGRESS ═══════ -->
-    <div class="page" id="page-progress">
-      <div class="page-meta">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-        ابزارها / Progress
-      </div>
-      <h1>Progress Bar</h1>
-      <p class="lead">
-        برای عملیات مرحله‌ای، نوار پیشرفت نمایش دهید.
-      </p>
-
-      <pre><code><span class="kw">with</span> app.progress(<span class="num">100</span>, prefix=<span class="str">"Processing: "</span>) <span class="kw">as</span> bar:
-    <span class="kw">for</span> i <span class="kw">in</span> range(<span class="num">100</span>):
-        do_one_item()
-        bar.update()</code></pre>
-
-      <h2>مثال کامل</h2>
-      <pre><code><span class="kw">def</span> <span class="fn">process_files</span>():
-    files = list(range(<span class="num">50</span>))
-    <span class="kw">with</span> app.progress(len(files), prefix=<span class="str">"Processing: "</span>) <span class="kw">as</span> bar:
-        <span class="kw">for</span> f <span class="kw">in</span> files:
-            <span class="kw">import</span> time
-            time.sleep(<span class="num">0.05</span>)
-            bar.update()
-    app.ok(<span class="str">"All files processed!"</span>)
-    app.pause()</code></pre>
-
-      <div class="page-nav">
-        <a href="#spinner" onclick="navigateTo('spinner'); return false;">
-          <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">Spinner →</span>
-        </a>
-        <a href="#quickask" class="nav-next" onclick="navigateTo('quickask'); return false;">
-          <span class="nav-label">صفحه بعد</span>
-          <span class="nav-title">سوال سریع ←</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ═══════ PAGE: QUICKASK ═══════ -->
-    <div class="page" id="page-quickask">
-      <div class="page-meta">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        ابزارها / سوال سریع
-      </div>
-      <h1>سوالات سریع</h1>
-      <p class="lead">
-        اگر نمی‌خواهید فرم کامل بسازید، از سوالات سریع استفاده کنید.
-      </p>
-
-      <h2>پرسیدن متن</h2>
-      <pre><code>name = app.ask(<span class="str">"What's your name?"</span>)</code></pre>
-
-      <h2>تأیید</h2>
-      <pre><code><span class="kw">if</span> app.confirm(<span class="str">"Are you sure?"</span>):
-    do_it()</code></pre>
-
-      <h2>انتخاب سریع</h2>
-      <pre><code>color = app.pick(<span class="str">"Choose a color"</span>, [<span class="str">"red"</span>, <span class="str">"green"</span>, <span class="str">"blue"</span>])</code></pre>
-
-      <div class="page-nav">
-        <a href="#progress" onclick="navigateTo('progress'); return false;">
-          <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">Progress →</span>
-        </a>
-        <a href="#navigation" class="nav-next" onclick="navigateTo('navigation'); return false;">
-          <span class="nav-label">صفحه بعد</span>
-          <span class="nav-title">ناوبری ←</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ═══════ PAGE: NAVIGATION ═══════ -->
-    <div class="page" id="page-navigation">
-      <div class="page-meta">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        ابزارها / ناوبری
-      </div>
-      <h1>ناوبری</h1>
-      <p class="lead">
-        Picopy یک سیستم ناوبری هوشمند با تاریخچه دارد.
-      </p>
-
-      <table>
-        <thead>
-          <tr><th>متد</th><th>توضیح</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>app.goto()</code></td><td>رفتن به صفحه</td></tr>
-          <tr><td><code>app.go_back()</code></td><td>برگشت به قبل</td></tr>
-          <tr><td><code>app.history</code></td><td>تاریخچه</td></tr>
-        </tbody>
-      </table>
-
-      <pre><code>app.goto(<span class="str">"settings"</span>)
-app.go_back()
-print(app.history)</code></pre>
-
-      <div class="callout callout-note">
-        <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        <div>
-          <div class="callout-title">ناوبری خودکار</div>
-          با Back یا ESC، خودکار به صفحه‌ی قبل برمی‌گردد.
-        </div>
-      </div>
-
-      <div class="page-nav">
-        <a href="#quickask" onclick="navigateTo('quickask'); return false;">
-          <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">سوال سریع →</span>
         </a>
         <a href="#examples" class="nav-next" onclick="navigateTo('examples'); return false;">
           <span class="nav-label">صفحه بعد</span>
@@ -1840,7 +1689,8 @@ print(app.history)</code></pre>
       </p>
 
       <h2>مثال ۱: Task Manager</h2>
-      <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> App<span class="kw">import</span> json
+      <pre><code><span class="kw">from</span> picopy <span class="kw">import</span> App
+<span class="kw">import</span> json
 <span class="kw">from</span> pathlib <span class="kw">import</span> Path
 
 app = App(<span class="str">"Tasks"</span>, theme=<span class="str">"dracula"</span>)
@@ -1878,7 +1728,7 @@ DB = Path(<span class="str">"tasks.json"</span>)
         tasks = load_tasks()
         tasks.append({<span class="str">"text"</span>: v[<span class="str">"task"</span>]})
         save_tasks(tasks)
-        app.ok(<span class="str">f"Task added!"</span>)
+        app.ok(<span class="str">"Task added!"</span>)
         app.pause()
 
 <span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
@@ -1913,9 +1763,9 @@ app = App(<span class="str">"System"</span>, theme=<span class="str">"nord"</spa
     app.run()</code></pre>
 
       <div class="page-nav">
-        <a href="#navigation" onclick="navigateTo('navigation'); return false;">
+        <a href="#themes" onclick="navigateTo('themes'); return false;">
           <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">ناوبری →</span>
+          <span class="nav-title">تم‌ها →</span>
         </a>
         <a href="#errors" class="nav-next" onclick="navigateTo('errors'); return false;">
           <span class="nav-label">صفحه بعد</span>
@@ -1935,30 +1785,35 @@ app = App(<span class="str">"System"</span>, theme=<span class="str">"nord"</spa
         اگر با خطایی مواجه شدید، این جدول را ببینید.
       </p>
 
-      <table>
+      <table class="param-table">
         <thead>
-          <tr><th>خطا</th><th>راه‌حل</th></tr>
+          <tr><th>خطا</th><th>علت</th><th>راه‌حل</th></tr>
         </thead>
         <tbody>
           <tr>
             <td><code>ImportError: cannot import name 'App'</code></td>
+            <td>کلاس App در فایل نیست</td>
             <td>کد کامل کتابخانه را جایگزین کنید</td>
           </tr>
           <tr>
             <td><code>SyntaxError: from __future__</code></td>
+            <td><code>__version__</code> بالای docstring</td>
             <td>خط <code>__version__</code> را بعد از <code>from __future__</code> بگذارید</td>
           </tr>
           <tr>
             <td><code>Unknown: 'settings'</code></td>
-            <td>اسم صفحه و رشته‌ی دکمه را یکسان کنید (حروف کوچک)</td>
+            <td>اسم فرم و رشته‌ی دکمه فرق دارد</td>
+            <td>یکسان کنید (حروف کوچک)</td>
           </tr>
           <tr>
             <td><code>ModuleNotFoundError: questionary</code></td>
+            <td>نصب نیست</td>
             <td><code>pip install questionary</code></td>
           </tr>
           <tr>
             <td><code>unknown-0.0.0-py3-none-any.whl</code></td>
-            <td><code>pyproject.toml</code> را پر کنید</td>
+            <td><code>pyproject.toml</code> خالی</td>
+            <td>محتوای آن را پر کنید</td>
           </tr>
         </tbody>
       </table>
@@ -1976,52 +1831,6 @@ app = App(<span class="str">"System"</span>, theme=<span class="str">"nord"</spa
           <span class="nav-label">صفحه قبل</span>
           <span class="nav-title">مثال‌ها →</span>
         </a>
-        <a href="#faq" class="nav-next" onclick="navigateTo('faq'); return false;">
-          <span class="nav-label">صفحه بعد</span>
-          <span class="nav-title">سوالات متداول ←</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ═══════ PAGE: FAQ ═══════ -->
-    <div class="page" id="page-faq">
-      <div class="page-meta">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        راهنما / سوالات متداول
-      </div>
-      <h1>سوالات متداول</h1>
-
-      <h2>آیا Picopy رایگان است؟</h2>
-      <p>بله، Picopy یک کتابخانه‌ی متن‌باز است.</p>
-
-      <h2>روی چه سیستم‌عامل‌هایی کار می‌کند؟</h2>
-      <p>Windows، Linux و macOS.</p>
-
-      <h2>آیا نیاز به نصب questionary دارم؟</h2>
-      <p>اگر با فایل WHL نصب کنید، pip خودش نصبش می‌کند.</p>
-
-      <h2>چطور یک صفحه‌ی جدید بسازم؟</h2>
-      <pre><code><span class="dec">@app.menu</span>(<span class="str">"NewPage"</span>)
-<span class="kw">def</span> <span class="fn">new_page</span>(m):
-    m.back()</code></pre>
-
-      <h2>چطور رنگ‌ها را غیرفعال کنم؟</h2>
-      <pre><code>app = App(<span class="str">"MyTool"</span>, theme=<span class="str">"mono"</span>)</code></pre>
-
-      <h2>چطور کد را در چند فایل تقسیم کنم؟</h2>
-      <pre><code><span class="kw">def</span> <span class="fn">register</span>(app):
-    <span class="dec">@app.menu</span>(<span class="str">"Tasks"</span>)
-    <span class="kw">def</span> <span class="fn">tasks_menu</span>(m):
-        m.back()</code></pre>
-
-      <h2>آیا از فارسی پشتیبانی می‌کند؟</h2>
-      <p>بله، از Unicode پشتیبانی می‌کند.</p>
-
-      <div class="page-nav">
-        <a href="#errors" onclick="navigateTo('errors'); return false;">
-          <span class="nav-label">صفحه قبل</span>
-          <span class="nav-title">خطاهای رایج →</span>
-        </a>
         <span></span>
       </div>
     </div>
@@ -2030,7 +1839,6 @@ app = App(<span class="str">"System"</span>, theme=<span class="str">"nord"</spa
 </div>
 
 <script>
-// ─── Theme ───
 function toggleTheme() {
   const html = document.documentElement;
   const icon = document.getElementById('themeIcon');
@@ -2053,7 +1861,6 @@ function toggleTheme() {
   }
 })();
 
-// ─── Navigation ───
 function navigateTo(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + pageId);
@@ -2083,23 +1890,17 @@ function handleHash() {
 window.addEventListener('load', handleHash);
 window.addEventListener('hashchange', handleHash);
 
-// ─── Sidebar ───
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
   document.getElementById('overlay').classList.toggle('show');
 }
 
-// ─── Search ───
 function searchDocs() {
   const query = document.getElementById('searchInput').value.toLowerCase().trim();
-  const currentPage = document.querySelector('.page.active');
-  if (!currentPage) return;
-  
   if (query.length < 2) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('search-hidden'));
     return;
   }
-  
   document.querySelectorAll('.page').forEach(page => {
     const text = page.textContent.toLowerCase();
     if (text.includes(query)) {
@@ -2114,7 +1915,6 @@ function searchDocs() {
   });
 }
 
-// ─── Keyboard ───
 document.addEventListener('keydown', (e) => {
   if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
     e.preventDefault();
